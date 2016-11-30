@@ -14,9 +14,9 @@
 
 
 <ion-content padding>
-<ion-input placeholder="Username"></ion-input>
-<ion-input placeholder="Password"></ion-input>
-<button ion-button full (click)="checklogin()">Sign-in</button>
+<ion-input placeholder="Username" [(ngModel)]="user.un"></ion-input>
+<ion-input placeholder="Password" [(ngModel)]="user.ps"></ion-input>
+<button ion-button full (click)="checklogin(user.un,user.ps)">Sign-in</button>
 
 
 </ion-content>

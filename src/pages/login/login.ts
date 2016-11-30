@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
+import { HomescreenPage } from '../homescreen/homescreen';
+import { Loginservice } from '../../providers/loginservice';
 /*
   Generated class for the Login page.
 
@@ -9,22 +10,32 @@ import { NavController } from 'ionic-angular';
 */
 @Component({
   selector: 'page-login',
-  templateUrl: 'login.html'
+  templateUrl: 'login.html',
+  providers :[Loginservice]
 })
 
 
 export class LoginPage {
  c1:any=false;
-constructor(public navCtrl: NavController) {
-
-  }
-ionViewDidLoad() {
+ user={};
+ constructor(public navCtrl: NavController,public loginservice:Loginservice) {}
+  ionViewDidLoad() {
     console.log('Hello LoginPage Page');
   }
-checklogin():void {
+
+
+
+
+checklogin(un,ps):void {
     console.log('Checking Login');
-    if (this.c1==false){
-      alert ("Login Fail")
-    }
+    console.log(this.user);
+    let a = this.loginservice.loadlogin(un,ps);
+      console.log(a);
+      // if (un=="vaibhav" && ps==123){
+      //   console.log("Login Sucess");
+      //   this.navCtrl.push(HomescreenPage);
+      // } else {
+      // alert("Login Fail");
+      // }
   }
 }
