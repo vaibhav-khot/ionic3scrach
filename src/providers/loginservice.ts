@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
@@ -11,20 +11,43 @@ import 'rxjs/add/operator/toPromise';
 */
 @Injectable()
 export class Loginservice {
+  data1:any;
+  message:any;
+access_token:any;
+  private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(public http: Http) {
     console.log('Hello Loginservice Provider');
-    // http.post('http://staging.php-dev.in:8844/trainingapp/api/users/login',);
+
   }
-  url ="http://staging.php-dev.in:8844/trainingapp/api/users/login";
-loadlogin(us,ps):Promise<any> {
-  var formData = new FormData();
-  formData.append("email",us)
-  formData.append("password",ps)
-  return this.http.post(this.url,{email:"a@b.com",password:"12345678"})
-    .toPromise()
-    .then(res => res.json().data)
-    .catch();
+  //While Running Browser
+  url ="http://localhost:1337/staging.php-dev.in:8844/trainingapp/api/users/login";
+  //While Running on Mobile
+  //url ="http://staging.php-dev.in:8844/trainingapp/api/users/login";
+
+  loadlogin(us: string,ps: string ):Promise<any> {
+    var data = new FormData();
+    data.append("email", us);//aaron.furtado@wwindia.com
+    data.append("password", ps);//aaronf123
+    // console.log(this.data1);
+    console.log(this.message);
+
+  // private headers = new Headers({'Content-Type': 'application/json'})
+  // return this.http.post(this.url, data)
+  //   .toPromise()
+  // .then(res => res.json().data)
+  // .catch();
+return new Promise(resolve =>{
+  this.http.post(this.url, data)
+    .map(res => res.json().data.access_token)
+        .subscribe(data=>{
+          console.log("trigger subscribe");
+           resolve(data);
+this.access_token=data.data;
+
+        })
+      })
+
 }
 }
 

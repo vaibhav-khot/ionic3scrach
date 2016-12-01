@@ -17,7 +17,13 @@ import { Loginservice } from '../../providers/loginservice';
 
 export class LoginPage {
  c1:any=false;
- user={};
+ user={un:"",ps:""};
+ hello:any;
+  handleError(error: any): Promise<any> {
+    console.log("error=================")
+   console.error('An error occurred', error); // for demo purposes only
+   return Promise.reject(error.message || error);
+ }
  constructor(public navCtrl: NavController,public loginservice:Loginservice) {}
   ionViewDidLoad() {
     console.log('Hello LoginPage Page');
@@ -29,8 +35,22 @@ export class LoginPage {
 checklogin(un,ps):void {
     console.log('Checking Login');
     console.log(this.user);
-    let a = this.loginservice.loadlogin(un,ps);
-      console.log(a);
+    this.loginservice.loadlogin(this.user.un,this.user.ps).then(res=>{
+      console.log("a===================");
+
+      console.log(res);
+    
+
+      this.hello=res;
+      console.log("hello===================");
+      console.log(this.hello);
+
+    }).catch(this.handleError)
+
+
+
+
+
       // if (un=="vaibhav" && ps==123){
       //   console.log("Login Sucess");
       //   this.navCtrl.push(HomescreenPage);
