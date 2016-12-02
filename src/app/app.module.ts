@@ -6,6 +6,9 @@ import { LoginPage } from '../pages/login/login';
 import { BasePage } from '../pages/base/base';
 import { HomescreenPage } from '../pages/homescreen/homescreen';
 import { Loginservice } from '../providers/loginservice';
+import { Httpservice } from '../providers/httpservice';
+
+import { HttpModule, RequestOptions, XHRBackend } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,15 @@ import { Loginservice } from '../providers/loginservice';
     HomescreenPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
-  Loginservice]
+  Loginservice,Httpservice
+  // {
+  //     provide: Httpservice,
+  //     useClass: (_backend: XHRBackend, _defaultOptions: RequestOptions) => {
+  //       return new Httpservice(_backend, _defaultOptions);
+  //     },
+  //     deps: [XHRBackend, RequestOptions]
+  //   }
+
+]
 })
 export class AppModule {}
