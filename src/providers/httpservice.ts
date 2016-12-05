@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { Http,Headers,Request,Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/Rx'; //for Observable.throw(res);
 import {Observable} from 'rxjs/Observable';
+
 
 /*
   Generated class for the Httpservice provider.
@@ -44,18 +46,21 @@ export class Httpservice //extends Http
     console.log("Custom Service");
     this.createAuthorizationHeader(headers);
     return this.http.post(url, data, {
-      headers: headers})._catch(this.catchAuthError(this));
+      headers: headers})//.catch(this.catchAuthError(this));
 
   }
   private catchAuthError (self: Httpservice) {
    // we have to pass HttpService's own instance here as `self`
    return (res: Response) => {
-     console.log(res);
+     console.log(JSON.stringify(res));
+     console.log("401 error");
+
      if (res.status === 401 || res.status === 403) {
        // if not authenticated
        console.log(res);
-     }
+       }
      return Observable.throw(res);
+
    }
 }
 }

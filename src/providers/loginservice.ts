@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-// import { Headers, Http } from '@angular/http';
+ import { Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
+
 //import { HTTP } from 'ionic-native';//ioniv nativ http
 import { Httpservice } from './httpservice';
 
@@ -56,7 +57,7 @@ export class Loginservice {
      data.append("password", ps);//aaronf123
      console.log(this.message);
 
-   //var headers = new Headers({"access_token":localStorage.getItem("access_token")});
+   var headers = new Headers({"access_token":localStorage.getItem("access_token")});
   // return this.http.post(this.url, data)
   //   .toPromise()
   // .then(res => res.json().data)
@@ -68,11 +69,12 @@ export class Loginservice {
          .subscribe(data=>{
            console.log("trigger subscribe");
            console.log(data);
-
-            resolve(data);
-            localStorage.setItem("access_token",data.data.access_token);
-
-
+           resolve(data);
+           localStorage.setItem("access_token",data.data.access_token);
+         },function(err){
+           console.log("err");
+           console.log(err);
+           resolve(err);
          })
        })
 

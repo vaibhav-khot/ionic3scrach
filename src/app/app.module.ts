@@ -5,6 +5,7 @@ import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { BasePage } from '../pages/base/base';
 import { HomescreenPage } from '../pages/homescreen/homescreen';
+import { ProductPage } from '../pages/product/product';
 import { Loginservice } from '../providers/loginservice';
 import { Httpservice } from '../providers/httpservice';
 
@@ -15,8 +16,8 @@ import { HttpModule, RequestOptions, XHRBackend } from '@angular/http';
     MyApp,
     BasePage,
     LoginPage,
-    HomescreenPage
-
+    HomescreenPage,
+    ProductPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -26,7 +27,8 @@ import { HttpModule, RequestOptions, XHRBackend } from '@angular/http';
     MyApp,
     LoginPage,
     BasePage,
-    HomescreenPage
+    HomescreenPage,
+    ProductPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
   Loginservice,Httpservice
