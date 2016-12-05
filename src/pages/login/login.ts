@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { HomescreenPage } from '../homescreen/homescreen';
 import { Loginservice } from '../../providers/loginservice';
-import { ProductPage } from '../product/product';
+import { ProductBasePage } from '../productbase/productbase';
 import { BasePage } from '../base/base';
 
 /*
@@ -45,11 +45,16 @@ checklogin(un,ps):void {
     this.loginservice.loadlogin(this.user.un,this.user.ps).then(res=>{
       console.log("a===================");
       console.log(res);
-      this.hello=JSON.stringify(res.status);
+      console.log(JSON.stringify(res));
+      // this.hello=JSON.stringify(res);
       if(res.status===200){
-        this.navCtrl.push(ProductPage);
+        this.hello=JSON.stringify(res.message);
+      this.navCtrl.push(ProductBasePage);
+        // this.navCtrl.push(ProductBasePage);
       } else {
-        this.navCtrl.push(BasePage);
+        console.log();
+        this.hello=res.json().user_msg
+        // this.navCtrl.push(BasePage);
       }
 
       // console.log("hello===================");
