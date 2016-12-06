@@ -40,16 +40,15 @@
 
   <ion-header>
     <ion-toolbar>
-      <ion-title>Pages</ion-title>
+      <ion-title>Login</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
-    <ion-list>
-      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
-    </ion-list>
+    <ion-avatar item-left>
+      <img src="https://d13yacurqjgara.cloudfront.net/users/128356/screenshots/1752293/lorenz.png">
+    </ion-avatar>
+  {{login_data}}
   </ion-content>
 
 </ion-menu>

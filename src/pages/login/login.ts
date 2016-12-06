@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController ,LoadingController } from 'ionic-angular';
 import { HomescreenPage } from '../homescreen/homescreen';
 import { Loginservice } from '../../providers/loginservice';
 import { ProductBasePage } from '../productbase/productbase';
 import { BasePage } from '../base/base';
+import 'rxjs/Rx';
 
 /*
   Generated class for the Login page.
@@ -29,10 +30,16 @@ export class LoginPage {
    return Promise.reject(error.message || error);
  }
 
- constructor(public loginservice:Loginservice,private navCtrl : NavController) {}
+ constructor(public loginservice:Loginservice,private navCtrl : NavController,public loadingCtrl: LoadingController) {}
   ionViewDidLoad() {
     console.log('Hello LoginPage Page');
+
+
+
+
   }
+
+
 
 
 
@@ -40,19 +47,35 @@ export class LoginPage {
 checklogin(un,ps):void {
     console.log('Checking Login');
     console.log(this.user);
+    // Create the popup
+
+
 
 
     this.loginservice.loadlogin(this.user.un,this.user.ps).then(res=>{
       console.log("a===================");
       console.log(res);
       console.log(JSON.stringify(res));
+
+
       // this.hello=JSON.stringify(res);
       if(res.status===200){
+        let loadingPopup = this.loadingCtrl.create({
+            content: 'Loading data...'
+          });
+
+          // Show the popup
+          loadingPopup.present();
         this.hello=JSON.stringify(res.message);
-      this.navCtrl.push(ProductBasePage);
+
+        setTimeout(() => {
+          this.hello=JSON.stringify(res.message);
+          loadingPopup.dismiss();
+          this.navCtrl.push(ProductBasePage);
+          }, 1000);
+
         // this.navCtrl.push(ProductBasePage);
       } else {
-        console.log();
         this.hello=res.json().user_msg
         // this.navCtrl.push(BasePage);
       }

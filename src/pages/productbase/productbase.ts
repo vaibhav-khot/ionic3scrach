@@ -13,12 +13,17 @@ import { ProductPage } from '../product/product';
   templateUrl: 'productbase.html'
 })
 export class ProductBasePage {
-
+login_data:any=localStorage.getItem("login_data");
 rootPage=ProductPage;
-  constructor(public navCtrl: NavController) {}
+profile_pic=this.login_data.data.profile.pic;
 
+
+  constructor(public navCtrl: NavController) {
+console.log(this.profile_pic);
+  }
   ionViewDidLoad() {
     console.log('Hello ProductBasePage Page');
+
   }
 
 }

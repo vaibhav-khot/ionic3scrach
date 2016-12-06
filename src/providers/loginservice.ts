@@ -71,6 +71,8 @@ export class Loginservice {
            console.log(data);
            resolve(data);
            localStorage.setItem("access_token",data.data.access_token);
+           localStorage.setItem("login_data",JSON.stringify(data));
+
          },function(err){
            console.log("err");
            console.log(err);
