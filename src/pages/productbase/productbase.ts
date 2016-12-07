@@ -14,7 +14,9 @@ import { ProductPage } from '../product/product';
 })
 export class ProductBasePage {
   login_data:any=JSON.parse(localStorage.getItem("login_data"));
+
   rootPage=ProductPage;
+
   Fn=this.login_data.data.first_name;
   ln=this.login_data.data.last_name;
   em=this.login_data.data.email;
@@ -27,7 +29,6 @@ export class ProductBasePage {
   }
   ionViewDidLoad() {
     console.log('Hello ProductBasePage Page');
-  
   }
 
 }

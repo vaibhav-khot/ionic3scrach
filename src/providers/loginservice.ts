@@ -5,6 +5,7 @@ import 'rxjs/add/operator/toPromise';
 
 //import { HTTP } from 'ionic-native';//ioniv nativ http
 import { Httpservice } from './httpservice';
+import { Default } from '../app/default';
 
 
 /*
@@ -79,8 +80,15 @@ export class Loginservice {
            resolve(err);
          })
        })
+    }
 
- }
+public getProductCategories():Promise<any> {
+
+  return new Promise(resolve=> {
+    resolve(Default.API.mock.getProductCategories())
+  })
+}
+
 
 
 

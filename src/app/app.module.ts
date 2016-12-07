@@ -7,6 +7,8 @@ import { BasePage } from '../pages/base/base';
 import { HomescreenPage } from '../pages/homescreen/homescreen';
 import { ProductBasePage } from '../pages/productbase/productbase';
 import { ProductPage} from '../pages/product/product';
+// import { Default } from './default';
+
 import { Loginservice } from '../providers/loginservice';
 import { Httpservice } from '../providers/httpservice';
 

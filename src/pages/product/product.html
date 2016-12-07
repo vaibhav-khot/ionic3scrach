@@ -13,19 +13,40 @@
 </ion-header>
  -->
 
- <ion-header>
+ <!-- <ion-header>
    <ion-navbar>
      <button menuToggle>
        <ion-icon name="menu"></ion-icon>
      </button>
      <ion-title>Product</ion-title>
    </ion-navbar>
- </ion-header>
- <ion-content class="card-background-page">
+ </ion-header> -->
+ <ion-content >
 
-  <ion-card>
-    <img src="img/card-saopaolo.png"/>
-    <div class="card-title">São Paulo</div>
-    <div class="card-subtitle">41 Listings</div>
+   <!-- <ion-card-header> -->
+     <ion-navbar>
+       <button menuToggle>
+         <ion-icon name="menu"></ion-icon>
+       </button>
+       <ion-title>Product</ion-title>
+     </ion-navbar>
+  <!-- </ion-card-header> -->
+<ion-card *ngFor="let image of catImg" >
+<!-- <ul>
+  <!- {{catImg}} -->
+  <!-- <li *ngFor="let image of catImg">{{image}}</li>
+</ul>  -->
+{{image}}
+    <!-- <img src="img/card-saopaolo.png"/>{{image}} -->
+
+    <!-- <div class="card-title">{{catName}}</div>
+    <div class="card-title">{{catPid}}</div>
+    <div class="card-subtitle">{{catLink}}</div>
+
+
+
+
+
+ -->
   </ion-card>
   <ion-content>
