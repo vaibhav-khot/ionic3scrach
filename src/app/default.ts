@@ -12,6 +12,11 @@ _api.mock.getProductCategories = function () {
     _d.data.push({ name: "Sofas", product_images: "assets/categories/category3.jpg", link: "", product_category_id: 3 });
     _d.data.push({ name: "Beds", product_images: "assets/categories/category4.jpg", link: "", product_category_id: 4 });
     _d.data.push({ name: "Dining Set", product_images: "assets/categories/category5.jpg", link: "", product_category_id: 5 });
+    // _d.data.push({ name: "Dining Set", product_images: "assets/categories/category5.jpg", link: "", product_category_id: 5 });
+    // _d.data.push({ name: "Dining Set", product_images: "assets/categories/category5.jpg", link: "", product_category_id: 5 });
+    // _d.data.push({ name: "Dining Set", product_images: "assets/categories/category5.jpg", link: "", product_category_id: 5 });
+    // _d.data.push({ name: "Dining Set", product_images: "assets/categories/category5.jpg", link: "", product_category_id: 5 });
+    // _d.data.push({ name: "Dining Set", product_images: "assets/categories/category5.jpg", link: "", product_category_id: 5 });
 
   return _d;
 }

@@ -21,7 +21,7 @@
      <ion-title>Product</ion-title>
    </ion-navbar>
  </ion-header> -->
- <ion-content >
+ <ion-content  class="card-background-page" >
 
    <!-- <ion-card-header> -->
      <ion-navbar>
@@ -30,16 +30,27 @@
        </button>
        <ion-title>Product</ion-title>
      </ion-navbar>
+
+     <ion-content class="card-background-page">
+
+       <!-- <ion-card>
+         <img src="img/card-saopaolo.png"/>
+         <div class="card-title">São Paulo</div>
+         <div class="card-subtitle">41 Listings</div>
+       </ion-card> -->
+
+
   <!-- </ion-card-header> -->
-<ion-card *ngFor="let image of catImg" >
-<!-- <ul>
-  <!- {{catImg}} -->
-  <!-- <li *ngFor="let image of catImg">{{image}}</li>
-</ul>  -->
-<ion-card-header *ngFor="let name of catName">
-   {{name}}
-   <img src="{{image}}"/>
- </ion-card-header>
+<ion-card *ngFor="let cat1 of cat.data" >
+<!-- {{catPid}} -->
+<!-- <ion-card-header>{{cat1.name}}</ion-card-header> -->
+
+   <img src="{{cat1.product_images}}"/>
+   <!-- <div class="card-title">{{cat1.name}}</div> -->
+   <button ion-item>
+         <ion-icon name="cart" item-left></ion-icon>
+        {{cat1.name}}
+       </button>
 
 
 

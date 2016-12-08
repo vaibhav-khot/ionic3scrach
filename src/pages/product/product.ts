@@ -20,12 +20,22 @@ import { Loginservice } from '../../providers/loginservice';
 })
 export class ProductPage implements OnInit {
 //It is issential to intiate empty array
-catName:string[]=[];
-catImg:string[]=[];//Array<String>;
-catLink:string[]=[];//Array<String>;
-catPid:string[]=[];//Array<String>;
+cat:any={};
 
-  constructor(public navCtrl: NavController,private http : Loginservice) {}
+//  cat.catName:string[]=[];
+// cat.catImg:string[]=[];//Array<String>;
+// cat.catLink:string[]=[];//Array<String>;
+// cat.catPid:string[]=[];//Array<String>;
+
+  constructor(public navCtrl: NavController,private http : Loginservice) {
+    this.cat.data=[];
+    this.cat.data.catName=[];
+    this.cat.data.catImg=[];//Array<String>;
+    this.cat.data.catLink=[];//Array<String>;
+    this.cat.data.catPid=[];//Array<String>;
+
+
+  }
 
   ngOnInit(){
 
@@ -34,17 +44,23 @@ catPid:string[]=[];//Array<String>;
     console.log("Product TS");
 
     console.log(JSON.stringify(res));
-    console.log(res);
-    for(var i in res.data){
-      console.log(res.data[i].name);
-      console.log(res.data[i].product_images);
-      console.log(res.data[i].link);
-      console.log(res.data[i].product_category_id);
-      this.catName.push(res.data[i].name);
-      this.catImg.push(res.data[i].product_images);
-      this.catLink.push(res.data[i].link);
-      this.catPid.push(res.data[i].product_category_id);
-}
+    console.log(res.data);
+    this.cat.data=res.data;
+
+//     for(var i in res.data)
+//     {
+//       console.log(res.data[i].name);
+//       console.log(res.data[i].product_images);
+//       console.log(res.data[i].link);
+//       console.log(res.data[i].product_category_id);
+//        this.cat.data.catName.push(res.data[i].name);
+//        this.cat.data.catImg.push(res.data[i].product_images);
+//        this.cat.data.catLink.push(res.data[i].link);
+//        this.cat.data.catPid.push(res.data[i].product_category_id);
+//       //
+//
+// }
+console.log(this.cat);
 
 
 
@@ -52,6 +68,7 @@ catPid:string[]=[];//Array<String>;
 // this.catName=JSON.stringify(res);
 
   });
+  // console.log(this.cat.catPid[0])
   }
 
   ionViewDidLoad() {
