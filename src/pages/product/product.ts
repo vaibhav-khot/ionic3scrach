@@ -36,7 +36,10 @@ cat:any={};
 
 
   }
+pushProduct(){
+console.log(this);
 
+}
   ngOnInit(){
 
   this.http.getProductCategories().then(res=>{
