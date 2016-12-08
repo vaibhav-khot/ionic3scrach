@@ -36,17 +36,18 @@
   <!- {{catImg}} -->
   <!-- <li *ngFor="let image of catImg">{{image}}</li>
 </ul>  -->
-{{image}}
-    <!-- <img src="img/card-saopaolo.png"/>{{image}} -->
-
-    <!-- <div class="card-title">{{catName}}</div>
-    <div class="card-title">{{catPid}}</div>
-    <div class="card-subtitle">{{catLink}}</div>
+<ion-card-header *ngFor="let name of catName">
+   {{name}}
+   <img src="{{image}}"/>
+ </ion-card-header>
 
 
 
-
-
- -->
+    <!-- <div class="card-title" *ngFor="let name of catName" >{{name}}
+    <div class="card-title" *ngFor="let id of catPid" >{{id}}
+    <div class="card-subtitle" *ngFor="let link of catLink" >{{link}}
+    </div>
+    </div>
+    </div> -->
   </ion-card>
-  <ion-content>
+<ion-content>
