@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 
 // import { Default } from '../../app/default';
 import { Loginservice } from '../../providers/loginservice';
+import { ListPage } from '../list/list';
 
 
 
@@ -36,11 +37,14 @@ cat:any={};
 
 
   }
-pushProduct(){
-console.log(this);
+pushProduct(e){
 
+// this.navCtrl.push(TablePage);
+console.log(e);
+this.navCtrl.push(ListPage,{e});
 }
-  ngOnInit(){
+
+ngOnInit(){
 
   this.http.getProductCategories().then(res=>{
     // console.log(JSON.stringify(_.keys(res)));
