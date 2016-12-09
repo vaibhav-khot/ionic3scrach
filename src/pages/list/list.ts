@@ -13,6 +13,7 @@ import { Api } from '../../providers/api';
   templateUrl: 'list.html'
 })
 export class ListPage {
+  products: Array<{}> = [];
 
   constructor(public navCtrl: NavController,public navPrams : NavParams,public api :Api) {
     let e = navPrams.get("e");
@@ -22,6 +23,8 @@ export class ListPage {
     id=e.product_category_id;
     api.loadProduct(id).then(res=>{
     console.log(res);
+    this.products = res.data;
+
 
     })
 
