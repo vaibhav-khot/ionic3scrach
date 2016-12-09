@@ -12,6 +12,7 @@ import { ListPage} from '../pages/list/list';
 
 import { Loginservice } from '../providers/loginservice';
 import { Httpservice } from '../providers/httpservice';
+import { Api } from '../providers/api';
 
 import { HttpModule, RequestOptions, XHRBackend } from '@angular/http';
 
@@ -39,7 +40,7 @@ import { HttpModule, RequestOptions, XHRBackend } from '@angular/http';
     ListPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
-  Loginservice,Httpservice
+  Loginservice,Httpservice,Api
   // {
   //     provide: Httpservice,
   //     useClass: (_backend: XHRBackend, _defaultOptions: RequestOptions) => {

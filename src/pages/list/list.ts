@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController,NavParams } from 'ionic-angular';
+import { Api } from '../../providers/api';
 
 /*
   Generated class for the List page.
@@ -13,9 +14,16 @@ import { NavController,NavParams } from 'ionic-angular';
 })
 export class ListPage {
 
-  constructor(public navCtrl: NavController,public navPrams : NavParams) {
+  constructor(public navCtrl: NavController,public navPrams : NavParams,public api :Api) {
     let e = navPrams.get("e");
+    let id:number;
     console.log(e);
+    console.log(e.product_category_id);
+    id=e.product_category_id;
+    api.loadProduct(id).then(res=>{
+    console.log(res);
+
+    })
 
   }
 
