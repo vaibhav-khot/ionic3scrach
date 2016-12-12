@@ -48,9 +48,9 @@ export class Loginservice {
   // });
   // }
   //While Running Browser
-  url ="http://localhost:1337/staging.php-dev.in:8844/trainingapp/api/users/login";
+ url ="http://localhost:1337/staging.php-dev.in:8844/trainingapp/api/users/login";
   //While Running on Mobile
-  //url ="http://staging.php-dev.in:8844/trainingapp/api/users/login";
+//  url ="http://staging.php-dev.in:8844/trainingapp/api/users/login";
 //trainingapp/api/users/login
    loadlogin(us: string,ps: string ):Promise<any> {
      var data = new FormData();
@@ -63,6 +63,12 @@ export class Loginservice {
   //   .toPromise()
   // .then(res => res.json().data)
   // .catch();
+
+  //  if (localStorage.getItem("login_data")!== null) {
+  //     //already loaded data
+  //  return Promise.resolve(localStorage.getItem("login_data"));
+  //  }
+
 
  return new Promise(resolve =>{
    this.http.post(this.url, data)

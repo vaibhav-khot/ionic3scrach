@@ -1,3 +1,9 @@
 page-list {
 
 }
+.scroll{
+  display: inline-flex;
+    overflow: scroll;
+    flex-direction: row;
+        width: 100%;
+}

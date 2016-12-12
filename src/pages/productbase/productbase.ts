@@ -27,6 +27,12 @@ export class ProductBasePage {
   constructor(public navCtrl: NavController) {
 
   }
+
+  logout(){
+  localStorage.clear();
+  this.navCtrl.pop();
+
+  }
   ionViewDidLoad() {
     console.log('Hello ProductBasePage Page');
   }

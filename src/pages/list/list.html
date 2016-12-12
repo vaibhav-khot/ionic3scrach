@@ -29,17 +29,20 @@
 <style>
   ion-content {
     background: #eee;
-  }
+  }/*
 
   ul {
     display: inline;
   }
+  */
   .cards{
-float:left;max-width:50%;
-  }
+float:left;
+max-width:50%;
+max-height: 50%;
+  }/*
 ion-thumbnail,ion-thumbanil>img{
   max-height:180px;min-height:180px;
-}
+}*/
 </style>
 <ion-header>
   <ion-navbar>
@@ -49,11 +52,19 @@ ion-thumbnail,ion-thumbanil>img{
     <ion-title></ion-title>
   </ion-navbar>
 </ion-header>
+
+
 <ion-content>
+  <!-- <ion-scroll direction="x" class="wide-as-needed"> -->
+
+
+
+
+<div class="scroll">
 
 
   <div class="cards" *ngFor="let product of products" >
-<ion-card >
+<ion-card (click)='viewProduct(product)'>
   <!-- (click)='viewProduct(product.product_id)' -->
       <ion-card-header>
         {{product.name}}
@@ -74,5 +85,40 @@ ion-thumbnail,ion-thumbanil>img{
         </ion-row>
       </ion-grid>
     </ion-card>
+
   </div>
+  </div>
+
+  <div class="scroll">
+
+
+    <div class="cards" *ngFor="let product of products1" >
+  <ion-card (click)='viewProduct(product.product_id)'>
+    <!-- (click)='viewProduct(product.product_id)' -->
+        <ion-card-header>
+          {{product.name}}
+        </ion-card-header>
+        <ion-thumbnail>
+          <img [src]='product.product_images' />
+        </ion-thumbnail>
+        <ion-grid>
+          <ion-row>
+            <ion-col width-50>
+              <ion-chip color='danger'><ion-label>Rs.{{product.cost}}</ion-label></ion-chip>
+               </ion-col>
+
+            <ion-col width-50>
+              <ion-chip><ion-label>+ ADD</ion-label></ion-chip>
+              </ion-col>
+
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+
+    </div>
+    </div>
+
+
+
+<!-- </ion-scroll> -->
 </ion-content>
