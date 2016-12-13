@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController ,LoadingController } from 'ionic-angular';
 import { HomescreenPage } from '../homescreen/homescreen';
 import { Loginservice } from '../../providers/loginservice';
+import { Api } from '../../providers/api';
 import { ProductBasePage } from '../productbase/productbase';
 import { BasePage } from '../base/base';
 import 'rxjs/Rx';
@@ -23,6 +24,7 @@ export class LoginPage {
  c1:any=false;
  user={un:"",ps:""};
  hello:string;
+ cartitems:number;
 
   handleError(error: any): Promise<any> {
     console.log("error=================")
@@ -30,7 +32,13 @@ export class LoginPage {
    return Promise.reject(error.message || error);
  }
 
- constructor(public loginservice:Loginservice,private navCtrl : NavController,public loadingCtrl: LoadingController) {}
+ constructor(
+   public loginservice:Loginservice,
+   private navCtrl : NavController,
+   public loadingCtrl: LoadingController,
+   public api: Api
+
+ ) {}
   ionViewDidLoad() {
     console.log('Hello LoginPage Page');
 
@@ -63,7 +71,13 @@ checklogin(un,ps):void {
         let loadingPopup = this.loadingCtrl.create({
             content: 'Loading data...'
           });
-
+          // this.api.loadCart().then(res=>{
+          //
+          // console.log("Load Cart Successfully");
+          // console.log(res.count);
+          // this.cartitems=res.count;
+          //
+          // })
           // Show the popup
           loadingPopup.present();
         this.hello=JSON.stringify(res.message);
@@ -72,7 +86,7 @@ checklogin(un,ps):void {
           this.hello=JSON.stringify(res.message);
           loadingPopup.dismiss();
           this.navCtrl.push(ProductBasePage);
-          }, 1000);
+        }, 2000);
 
         // this.navCtrl.push(ProductBasePage);
       } else {
@@ -93,5 +107,11 @@ checklogin(un,ps):void {
       // } else {
       // alert("Login Fail");
       // }
+
+
+
+
+
+
   }
 }

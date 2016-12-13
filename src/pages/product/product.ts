@@ -4,6 +4,7 @@ import { NavController } from 'ionic-angular';
 // import { Default } from '../../app/default';
 import { Loginservice } from '../../providers/loginservice';
 import { ListPage } from '../list/list';
+import { ProductBasePage } from '../productbase/productbase';
 
 
 
@@ -35,8 +36,7 @@ cartitem:number;
     this.cat.data.catImg=[];//Array<String>;
     this.cat.data.catLink=[];//Array<String>;
     this.cat.data.catPid=[];//Array<String>;
-    this.cartitem=0;
-
+  //  this.cartitem=pb.setCart();
 
 
   }

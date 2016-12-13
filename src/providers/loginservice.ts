@@ -50,7 +50,7 @@ export class Loginservice {
   //While Running Browser
  url ="http://localhost:1337/staging.php-dev.in:8844/trainingapp/api/users/login";
   //While Running on Mobile
-//  url ="http://staging.php-dev.in:8844/trainingapp/api/users/login";
+ //url ="http://staging.php-dev.in:8844/trainingapp/api/users/login";
 //trainingapp/api/users/login
    loadlogin(us: string,ps: string ):Promise<any> {
      var data = new FormData();
