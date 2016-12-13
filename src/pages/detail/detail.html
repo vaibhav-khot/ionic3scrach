@@ -32,23 +32,23 @@
 
 <ion-content style="background:#eee">
 <ion-card>
-      <!-- <ion-slides>
-        <ion-slide> -->
+      <ion-slides>
+        <ion-slide *ngFor="let image of product.product_images">
           <ion-thumbnail>
-        <img [src]='product.product_images' />
-      </ion-thumbnail>
-        <!-- </ion-slide> -->
-        <!-- <ion-slide>
-          <ion-thumbnail>
-        <img [src]='product.product_images' />
+        <img [src]='image.image' />
       </ion-thumbnail>
         </ion-slide>
-        <ion-slide>
+          <!-- <ion-slide>
           <ion-thumbnail>
-        <img [src]='product.product_images' />
+        <img [src]='product.product_images[1].image' />
       </ion-thumbnail>
-    </ion-slide>-->
-      <!-- </ion-slides> -->
+        </ion-slide> -->
+        <!-- <ion-slide>
+          <ion-thumbnail>
+        <img [src]='product.product_images[2].image' />
+      </ion-thumbnail>
+    </ion-slide>  -->
+      </ion-slides>
 
       <ion-grid padding>
 

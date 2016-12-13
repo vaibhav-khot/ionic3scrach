@@ -93,7 +93,7 @@ ion-thumbnail,ion-thumbanil>img{
 
 
     <div class="cards" *ngFor="let product of products1" >
-  <ion-card (click)='viewProduct(product.product_id)'>
+  <ion-card (click)='viewProduct(product)'>
     <!-- (click)='viewProduct(product.product_id)' -->
         <ion-card-header>
           {{product.name}}

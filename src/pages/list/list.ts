@@ -16,37 +16,50 @@ import { DetailPage } from '../detail/detail';
 export class ListPage {
   products: Array<{}> = [];
   products1: Array<{}> = [];
+  products2:any;
 
+  id:number;
   constructor(public navCtrl: NavController,public navPrams : NavParams,public api :Api) {
     let e = navPrams.get("e");
-    let id:number;
+
     console.log(e);
     console.log(e.product_category_id);
-    id=e.product_category_id;
-    if(id!=1){
-      api.loadProduct(id).then(res=>{
+    this.id=e.product_category_id;
+    if(this.id!=1){
+      api.loadProduct(this.id).then(res=>{
       console.log(res);
       this.products = res.data;
     })
   } else {
     //var url1 ="http://staging.php-dev.in:8844/trainingapp/api/products/getList?product_category_id="+id+"&limit=10&page=1";
   //  var url2 ="http://staging.php-dev.in:8844/trainingapp/api/products/getList?product_category_id="+id+"&limit=10&page=2";
-    var url1 ="http://localhost:1337/staging.php-dev.in:8844/trainingapp/api/products/getList?product_category_id="+id+"&limit=10&page=1";
-    var url2 ="http://localhost:1337/staging.php-dev.in:8844/trainingapp/api/products/getList?product_category_id="+id+"&limit=10&page=2";
+    var url1 ="http://localhost:1337/staging.php-dev.in:8844/trainingapp/api/products/getList?product_category_id="+this.id+"&limit=10&page=1";
+    var url2 ="http://localhost:1337/staging.php-dev.in:8844/trainingapp/api/products/getList?product_category_id="+this.id+"&limit=10&page=2";
 
-      api.loadProduct1(id,url1).then(res=>{
+      api.loadProduct1(this.id,url1).then(res=>{
       console.log(res);
       this.products = res.data;
     })
-    api.loadProduct1(id,url2).then(res=>{
+    api.loadProduct1(this.id,url2).then(res=>{
     console.log(res);
     this.products1 = res.data;
   })
   }
+
 }
 
-viewProduct(product){
-this.navCtrl.push(DetailPage,{product:product})
+viewProduct(product) {
+
+  console.log("inside ViewProducts");
+
+  var id = product.id;
+  console.log(id);
+   this.api.loadDetails(id).then(res=>{
+     console.log("details got ");
+     this.products2=res.data;
+     console.log(this.products2);
+     this.navCtrl.push(DetailPage,{product:res.data})
+     })
 
 }
 

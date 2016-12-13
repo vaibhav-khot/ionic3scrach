@@ -22,6 +22,7 @@ import { ListPage } from '../list/list';
 export class ProductPage implements OnInit {
 //It is issential to intiate empty array
 cat:any={};
+cartitem:number;
 
 //  cat.catName:string[]=[];
 // cat.catImg:string[]=[];//Array<String>;
@@ -34,6 +35,8 @@ cat:any={};
     this.cat.data.catImg=[];//Array<String>;
     this.cat.data.catLink=[];//Array<String>;
     this.cat.data.catPid=[];//Array<String>;
+    this.cartitem=0;
+
 
 
   }

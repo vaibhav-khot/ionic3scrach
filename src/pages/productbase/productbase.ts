@@ -22,7 +22,7 @@ export class ProductBasePage {
   em=this.login_data.data.email;
   pn=this.login_data.data.phone_no;
   un=this.login_data.data.username;
-
+  
 
   constructor(public navCtrl: NavController) {
 

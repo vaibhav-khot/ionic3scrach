@@ -17,7 +17,7 @@ productSlide:any;
 // myRating:number;
 
   constructor(public navCtrl: NavController,public navParams: NavParams) {
-
+console.log("details page constructor");
     var product=this.navParams.get('product');
     console.log(product);
     this.product=product;
