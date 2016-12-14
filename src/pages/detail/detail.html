@@ -74,14 +74,14 @@
           </ion-col>
  </ion-row>
 
-        <ion-row>
+        <ion-row (click)="quantity(product.id)">
           <ion-col width-50 padding-top>
             <h2><span color='danger'>Rs.{{product.cost}}</span><span color='dark'> <del>Rs.{{product.cost}}</del></span></h2>
 
              </ion-col>
 
           <ion-col width-50>
-            <button ion-button primary round small><ion-icon name="md-cart"></ion-icon> ADD TO CART</button>
+            <button ion-button primary round small><ion-icon name="md-cart" ></ion-icon> ADD TO CART</button>
             </ion-col>
 
         </ion-row>

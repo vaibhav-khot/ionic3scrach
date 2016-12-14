@@ -88,5 +88,22 @@ return new Promise(resolve=>{
         });
       })
   }
+  addCart(id,quantity):Promise<any>{
+
+    var url ="http://localhost:1337/staging.php-dev.in:8844/trainingapp/api/addToCart";
+    //var url ="http://staging.php-dev.in:8844/trainingapp/api/cart";
+
+   return new Promise(resolve=>{
+     this.http.get(url)
+           // Call map on the response observable to get the parsed people object
+           .map(res => res.json())
+           // Subscribe to the observable to get the parsed people object and attach it to the
+           // component
+           .subscribe(data=>{
+             console.log(data);
+             resolve(data);
+           });
+         })
+  }
 
 }

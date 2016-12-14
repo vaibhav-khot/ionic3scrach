@@ -13,6 +13,7 @@ import { DetailPage} from '../pages/detail/detail';
 
 import { Loginservice } from '../providers/loginservice';
 import { Httpservice } from '../providers/httpservice';
+import { Shareservice } from '../providers/shareservice';
 import { Api } from '../providers/api';
 
 import { HttpModule, RequestOptions, XHRBackend } from '@angular/http';
@@ -43,7 +44,7 @@ import { HttpModule, RequestOptions, XHRBackend } from '@angular/http';
     DetailPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
-  Loginservice,Httpservice,Api
+  Loginservice,Httpservice,Api,Shareservice
   // {
   //     provide: Httpservice,
   //     useClass: (_backend: XHRBackend, _defaultOptions: RequestOptions) => {

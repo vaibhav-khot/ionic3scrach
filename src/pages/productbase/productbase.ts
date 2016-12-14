@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController ,NavParams} from 'ionic-angular';
 import { ProductPage } from '../product/product';
 import { Api } from '../../providers/api';
+import { Shareservice } from '../../providers/shareservice';
+// import { ProductBasePage } from '../productbase/productbase';
 
 /*
   Generated class for the Product page.
@@ -11,7 +13,8 @@ import { Api } from '../../providers/api';
 */
 @Component({
   selector: 'page-productbase',
-  templateUrl: 'productbase.html'
+  templateUrl: 'productbase.html',
+  providers:[Shareservice,Api]
 })
 export class ProductBasePage {
   login_data:any=JSON.parse(localStorage.getItem("login_data"));
@@ -25,7 +28,9 @@ export class ProductBasePage {
   un=this.login_data.data.username;
 
 
-  constructor(public navCtrl: NavController , public navParams: NavParams, public api: Api)  {
+  constructor(public navCtrl: NavController , public navParams: NavParams, public api: Api,
+    public ss : Shareservice
+  )  {
     // this.cartitem= this.navParams.get('cartItems')
 
     this.api.loadCart().then(res=>{
@@ -33,12 +38,9 @@ export class ProductBasePage {
     console.log("Load Cart Successfully");
     console.log(res.count);
     this.cartitem=res.count;
+    ss.setcart(res.count);
 
-    })
-  }
-
-setCart():number{
-    return this.cartitem;
+  })
 }
   logout(){
   localStorage.clear();

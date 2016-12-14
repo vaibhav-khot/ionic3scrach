@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { ProductBasePage } from '../productbase/productbase';
+// import { ProducPage } from '../product/product';
 /*
   Generated class for the Base page.
 
@@ -22,6 +23,7 @@ ionViewDidLoad() {
   takeMeLogin():void {
     if(localStorage.getItem("login_data")){
         this.navCtrl.push(ProductBasePage);
+
     }else{this.navCtrl.push(LoginPage);}
   }
 

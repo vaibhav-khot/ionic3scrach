@@ -41,25 +41,12 @@ export class LoginPage {
  ) {}
   ionViewDidLoad() {
     console.log('Hello LoginPage Page');
-
-
-
-
   }
-
-
-
-
-
 
 checklogin(un,ps):void {
     console.log('Checking Login');
     console.log(this.user);
     // Create the popup
-
-
-
-
     this.loginservice.loadlogin(this.user.un,this.user.ps).then(res=>{
       console.log("a===================");
       console.log(res);
@@ -86,7 +73,7 @@ checklogin(un,ps):void {
           this.hello=JSON.stringify(res.message);
           loadingPopup.dismiss();
           this.navCtrl.push(ProductBasePage);
-        }, 2000);
+        }, 3000);
 
         // this.navCtrl.push(ProductBasePage);
       } else {
@@ -96,9 +83,7 @@ checklogin(un,ps):void {
 
       // console.log("hello===================");
       // console.log(this.hello);
-
-
-  })
+    })
 
 
       // if (un=="vaibhav" && ps==123){
@@ -107,11 +92,5 @@ checklogin(un,ps):void {
       // } else {
       // alert("Login Fail");
       // }
-
-
-
-
-
-
-  }
+}
 }

@@ -31,8 +31,8 @@ export class ListPage {
       this.products = res.data;
     })
   } else {
-  // var url1 ="http://staging.php-dev.in:8844/trainingapp/api/products/getList?product_category_id="+this.id+"&limit=10&page=1";
-   // var url2 ="http://staging.php-dev.in:8844/trainingapp/api/products/getList?product_category_id="+this.id+"&limit=10&page=2";
+   //var url1 ="http://staging.php-dev.in:8844/trainingapp/api/products/getList?product_category_id="+this.id+"&limit=10&page=1";
+    //var url2 ="http://staging.php-dev.in:8844/trainingapp/api/products/getList?product_category_id="+this.id+"&limit=10&page=2";
    var url1 ="http://localhost:1337/staging.php-dev.in:8844/trainingapp/api/products/getList?product_category_id="+this.id+"&limit=10&page=1";
     var url2 ="http://localhost:1337/staging.php-dev.in:8844/trainingapp/api/products/getList?product_category_id="+this.id+"&limit=10&page=2";
 

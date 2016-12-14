@@ -33,7 +33,7 @@
       <button ion-button>
         <!-- <ion-icon name="cart">{{cartitem}}</ion-icon> -->
 
-          <ion-icon ios="ios-cart" md="md-cart">    {{cartitem}}</ion-icon>
+          <ion-icon ios="ios-cart" md="md-cart">    {{cartitem}} Items</ion-icon>
       </button>
     </ion-buttons>
      </ion-navbar>
@@ -48,13 +48,13 @@
 
 
   <!-- </ion-card-header> -->
-<ion-card *ngFor="let cat1 of cat.data" >
+<ion-card *ngFor="let cat1 of cat.data" (click)="pushProduct(cat1)">
 <!-- {{catPid}} -->
 <!-- <ion-card-header>{{cat1.name}}</ion-card-header> -->
 
    <img src="{{cat1.product_images}}"/>
    <!-- <div class="card-title">{{cat1.name}}</div> -->
-   <button id="{{cat1.name}}" ion-item (click)="pushProduct(cat1)">
+   <button id="{{cat1.name}}" ion-item >
          <ion-icon name="cart" item-left ></ion-icon>
         {{cat1.name}}
        </button>

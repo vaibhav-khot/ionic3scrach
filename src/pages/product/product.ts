@@ -3,8 +3,11 @@ import { NavController } from 'ionic-angular';
 
 // import { Default } from '../../app/default';
 import { Loginservice } from '../../providers/loginservice';
+import { Shareservice } from '../../providers/shareservice';
 import { ListPage } from '../list/list';
 import { ProductBasePage } from '../productbase/productbase';
+import { Api } from '../../providers/api';
+
 
 
 
@@ -18,26 +21,38 @@ import { ProductBasePage } from '../productbase/productbase';
 */
 @Component({
   selector: 'page-product',
-  templateUrl: 'product.html'
+  templateUrl: 'product.html',
+  providers: [Shareservice]
 })
 export class ProductPage implements OnInit {
 //It is issential to intiate empty array
 cat:any={};
-cartitem:number;
+cartitem:any;
 
 //  cat.catName:string[]=[];
 // cat.catImg:string[]=[];//Array<String>;
 // cat.catLink:string[]=[];//Array<String>;
 // cat.catPid:string[]=[];//Array<String>;
 
-  constructor(public navCtrl: NavController,private http : Loginservice) {
+  constructor(public navCtrl: NavController,private http : Loginservice ,
+    public ss : Shareservice, public api : Api
+  ) {
+    console.log("Hello product Page");
+
     this.cat.data=[];
     this.cat.data.catName=[];
     this.cat.data.catImg=[];//Array<String>;
     this.cat.data.catLink=[];//Array<String>;
     this.cat.data.catPid=[];//Array<String>;
-  //  this.cartitem=pb.setCart();
 
+    // console.log(ss.getcart());
+    this.api.loadCart().then(res=>{
+
+    console.log("Load Cart Successfully");
+    console.log(res.count);
+    this.cartitem=res.count;
+
+  })
 
   }
 pushProduct(e){
@@ -48,14 +63,15 @@ this.navCtrl.push(ListPage,{e});
 }
 
 ngOnInit(){
-
+  // this.cartitem=this.ss.getcart();
+    this.cartitem=this.ss.getcart();
   this.http.getProductCategories().then(res=>{
     // console.log(JSON.stringify(_.keys(res)));
-    console.log("Product TS");
+  console.log("Product TS");
 
-    console.log(JSON.stringify(res));
-    console.log(res.data);
-    this.cat.data=res.data;
+  console.log(JSON.stringify(res));
+  console.log(res.data);
+  this.cat.data=res.data;
 
 //     for(var i in res.data)
 //     {
