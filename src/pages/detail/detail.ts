@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams ,AlertController } from 'ionic-angular';
+import { NavController, NavParams ,AlertController,LoadingController ,Events } from 'ionic-angular';
+import { Api } from '../../providers/api';
 
 /*
   Generated class for the Detail page.
@@ -14,12 +15,18 @@ import { NavController, NavParams ,AlertController } from 'ionic-angular';
 export class DetailPage {
 product:any;
 productSlide:any;
+cartitem:any;
 // myRating:number;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public alertCtrl : AlertController)
+    public alertCtrl : AlertController,
+    public api : Api,
+    public loadingCtrl: LoadingController,
+    public events : Events
+
+)
     {
     console.log("details page constructor");
     var product=this.navParams.get('product');
@@ -31,6 +38,14 @@ productSlide:any;
     initialSlide: 1,
     loop: true
     }
+
+    this.api.loadCart().then(res=>{
+
+        console.log("Load Cart Successfully");
+        console.log(res.count);
+        this.cartitem=res.count;
+
+      })
   }
   quantity(id){
     let prompt = this.alertCtrl.create({
@@ -62,7 +77,18 @@ productSlide:any;
             alert("please Enter Valid Quantity");
           }
           else {
-            alert("Goto Quntity Api");
+            // alert("Goto Quntity Api");
+            console.log(this.product.id+"()()"+data.Quantity);
+            this.api.addCart(this.product.id,data.Quantity).then(res=>{
+              console.log(res);
+              this.events.publish(res.total_carts);
+
+              let loader = this.loadingCtrl.create({
+                content: res.message,
+                duration: 3000
+              });
+              loader.present();
+            })
           }
 
           }

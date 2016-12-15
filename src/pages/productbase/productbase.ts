@@ -38,7 +38,7 @@ export class ProductBasePage {
     console.log("Load Cart Successfully");
     console.log(res.count);
     this.cartitem=res.count;
-    ss.setcart(res.count);
+    this.api.createCartEvent(res.count)
 
   })
 }

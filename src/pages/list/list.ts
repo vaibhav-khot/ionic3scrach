@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController,NavParams } from 'ionic-angular';
+import { NavController,NavParams, Events } from 'ionic-angular';
 import { Api } from '../../providers/api';
 import { DetailPage } from '../detail/detail';
 
@@ -17,16 +17,18 @@ export class ListPage {
   products: Array<{}> = [];
   products1: Array<{}> = [];
   products2:any;
+  cartitem:any;
+
 
   id:number;
-  constructor(public navCtrl: NavController,public navPrams : NavParams,public api :Api) {
+  constructor(public navCtrl: NavController,public navPrams : NavParams,public api :Api, public events : Events ) {
     let e = navPrams.get("e");
 
     console.log(e);
     console.log(e.product_category_id);
     this.id=e.product_category_id;
     if(this.id!=1){
-      api.loadProduct(this.id).then(res=>{
+      this.api.loadProduct(this.id).then(res=>{
       console.log(res);
       this.products = res.data;
     })
@@ -45,6 +47,26 @@ export class ListPage {
     this.products1 = res.data;
   })
   }
+  // this.api.loadCart().then(res=>{
+  //
+  //     console.log("Load Cart Successfully");
+  //     console.log(res.count);
+  //     this.cartitem=res.count;
+  //
+  //   })
+  this.events.subscribe('Cart', (item) => {
+    // userEventData is an array of parameters, so grab our first and only arg
+    console.log('Welcome', item);
+    this.cartitem=item;
+  });
+
+    this.events.subscribe('CartAdded', (item) => {
+      // userEventData is an array of parameters, so grab our first and only arg
+      console.log('Welcome', item);
+      this.cartitem=item;
+    });
+
+
 
 }
 

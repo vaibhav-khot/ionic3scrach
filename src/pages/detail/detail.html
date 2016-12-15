@@ -21,16 +21,28 @@
   width:100%;
 }
 </style>
-<ion-header>
+<!-- <ion-header>
 
   <ion-navbar>
     <ion-title>{{product.name}}</ion-title>
   </ion-navbar>
 
-</ion-header>
+</ion-header> -->
 
 
 <ion-content style="background:#eee">
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{product.name}}</ion-title>
+    <ion-buttons end>
+   <!-- <button ion-button>
+
+       <ion-icon ios="ios-cart" md="md-cart">    {{cartitem}} Items</ion-icon>
+   </button> -->
+  </ion-buttons>
+  </ion-navbar>
 <ion-card>
       <ion-slides>
         <ion-slide *ngFor="let image of product.product_images">

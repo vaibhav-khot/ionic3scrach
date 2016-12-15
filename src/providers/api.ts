@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 // import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Httpservice } from './httpservice';
+import { Events } from 'ionic-angular';
+
 
 
 /*
@@ -13,7 +15,9 @@ import { Httpservice } from './httpservice';
 @Injectable()
 export class Api {
 product:any;
-  constructor(public http: Httpservice) {
+  constructor(public http: Httpservice,
+    public events: Events
+    ) {
     console.log('Hello Api Provider');
 
   }
@@ -89,21 +93,44 @@ return new Promise(resolve=>{
       })
   }
   addCart(id,quantity):Promise<any>{
-
+    var data = new FormData();
+    data.append("product_id", id);//
+    data.append("quantity", quantity);//
     var url ="http://localhost:1337/staging.php-dev.in:8844/trainingapp/api/addToCart";
     //var url ="http://staging.php-dev.in:8844/trainingapp/api/cart";
 
    return new Promise(resolve=>{
-     this.http.get(url)
+     this.http.post(url,data)
            // Call map on the response observable to get the parsed people object
            .map(res => res.json())
            // Subscribe to the observable to get the parsed people object and attach it to the
            // component
            .subscribe(data=>{
              console.log(data);
+             console.log(data.total_carts);
              resolve(data);
-           });
+           })
          })
   }
+
+  // first page (publish an event when a user is created)
+   createCartEvent(items) {
+    console.log('Cart!')
+    this.events.publish('Cart', items);
+  }
+  addCartEvent(items){
+    console.log('Cart Added!')
+    this.events.publish('CartAdded', items);
+
+  }
+
+  // second page (listen for the user created event)
+  // events.subscribe('user:created', (userEventData) => {
+  //   // userEventData is an array of parameters, so grab our first and only arg
+  //   console.log('Welcome', userEventData[0]);
+  // });
+  //
+
+
 
 }

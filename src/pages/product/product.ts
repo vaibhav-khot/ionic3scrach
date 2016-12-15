@@ -1,5 +1,5 @@
 import { Component , OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController ,Events} from 'ionic-angular';
 
 // import { Default } from '../../app/default';
 import { Loginservice } from '../../providers/loginservice';
@@ -35,7 +35,7 @@ cartitem:any;
 // cat.catPid:string[]=[];//Array<String>;
 
   constructor(public navCtrl: NavController,private http : Loginservice ,
-    public ss : Shareservice, public api : Api
+    public ss : Shareservice, public api : Api,public events : Events
   ) {
     console.log("Hello product Page");
 
@@ -46,13 +46,20 @@ cartitem:any;
     this.cat.data.catPid=[];//Array<String>;
 
     // console.log(ss.getcart());
-    this.api.loadCart().then(res=>{
+  //   this.api.loadCart().then(res=>{
+  //
+  //   console.log("Load Cart Successfully");
+  //   console.log(res.count);
+  //   this.cartitem=res.count;
+  //
+  // })
+//  second page (listen for the user created event)
+  this.events.subscribe('Cart', (item) => {
+    // userEventData is an array of parameters, so grab our first and only arg
+    console.log('Welcome', item);
+    this.cartitem=item;
+  });
 
-    console.log("Load Cart Successfully");
-    console.log(res.count);
-    this.cartitem=res.count;
-
-  })
 
   }
 pushProduct(e){

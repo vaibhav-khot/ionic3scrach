@@ -44,19 +44,31 @@ ion-thumbnail,ion-thumbanil>img{
   max-height:180px;min-height:180px;
 }*/
 </style>
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title></ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
 
 <ion-content>
   <!-- <ion-scroll direction="x" class="wide-as-needed"> -->
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Product</ion-title>
+    <ion-buttons end>
+   <button ion-button>
+     <!-- <ion-icon name="cart">{{cartitem}}</ion-icon> -->
 
+       <ion-icon ios="ios-cart" md="md-cart">    {{cartitem}} Items</ion-icon>
+   </button>
+  </ion-buttons>
+  </ion-navbar>
 
 
 
