@@ -21,10 +21,13 @@ export class ListPage {
 
 
   id:number;
-  constructor(public navCtrl: NavController,public navPrams : NavParams,public api :Api, public events : Events ) {
-    let e = navPrams.get("e");
-
+  constructor(public navCtrl: NavController,public navParams : NavParams,public api :Api, public events : Events ) {
+    let e = navParams.get("e");
+    let item = navParams.get("item");
+    console.log("list page constructot")
     console.log(e);
+    console.log(item);
+     this.cartitem=item;
     console.log(e.product_category_id);
     this.id=e.product_category_id;
     if(this.id!=1){
@@ -80,7 +83,7 @@ viewProduct(product) {
      console.log("details got ");
      this.products2=res.data;
      console.log(this.products2);
-     this.navCtrl.push(DetailPage,{product:res.data})
+     this.navCtrl.push(DetailPage,{product:res.data,item : this.cartitem})
      })
 
 }

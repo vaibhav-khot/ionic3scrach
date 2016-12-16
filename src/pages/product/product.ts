@@ -65,8 +65,9 @@ cartitem:any;
 pushProduct(e){
 
 // this.navCtrl.push(TablePage);
+console.log("productpage navctrl");
 console.log(e);
-this.navCtrl.push(ListPage,{e});
+this.navCtrl.push(ListPage,{e,item : this.cartitem});
 }
 
 ngOnInit(){

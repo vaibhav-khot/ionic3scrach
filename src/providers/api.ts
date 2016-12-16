@@ -89,6 +89,7 @@ return new Promise(resolve=>{
         .subscribe(data=>{
           console.log(data);
           resolve(data);
+
         });
       })
   }
@@ -107,10 +108,11 @@ return new Promise(resolve=>{
            // component
            .subscribe(data=>{
              console.log(data);
-             console.log(data.total_carts);
+            //  console.log(data.total_carts);
              resolve(data);
            })
          })
+
   }
 
   // first page (publish an event when a user is created)

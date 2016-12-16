@@ -30,9 +30,11 @@ cartitem:any;
     {
     console.log("details page constructor");
     var product=this.navParams.get('product');
+    var item=this.navParams.get('item');
     console.log(product);
     this.product=product;
     // this.myRating=product.rating;
+    this.cartitem=item;
 
     this.productSlide={
     initialSlide: 1,
@@ -43,7 +45,6 @@ cartitem:any;
 
         console.log("Load Cart Successfully");
         console.log(res.count);
-        this.cartitem=res.count;
 
       })
   }
