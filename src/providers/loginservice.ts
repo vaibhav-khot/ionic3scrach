@@ -6,6 +6,7 @@ import 'rxjs/add/operator/toPromise';
 //import { HTTP } from 'ionic-native';//ioniv nativ http
 import { Httpservice } from './httpservice';
 import { Default } from '../app/default';
+import { Loader } from './loader';
 
 
 /*
@@ -21,7 +22,9 @@ export class Loginservice {
 
   // private headers = new Headers({'Content-Type': 'application/json'});
 
-  constructor(public http: Httpservice) {
+  constructor(public http: Httpservice,
+    public loader: Loader
+  ) {
     console.log('Hello Loginservice Provider');
     // private headers = new Headers({"X-Access-Token":localStorage.getItem("access_token")})
     // private headers = new Headers({"access_token":localStorage.getItem("access_token")})
@@ -68,7 +71,8 @@ export class Loginservice {
   //     //already loaded data
   //  return Promise.resolve(localStorage.getItem("login_data"));
   //  }
-
+  let loading = this.loader.createLoader();
+  loading.present();
 
  return new Promise(resolve =>{
    this.http.post(this.url, data)
@@ -79,7 +83,8 @@ export class Loginservice {
            resolve(data);
            localStorage.setItem("access_token",data.data.access_token);
            localStorage.setItem("login_data",JSON.stringify(data));
-
+           loading.dismiss();
+           
          },function(err){
            console.log("err");
            console.log(err);
