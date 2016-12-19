@@ -82,13 +82,20 @@ cartitem:any;
             console.log(this.product.id+"()()"+data.Quantity);
             this.api.addCart(this.product.id,data.Quantity).then(res=>{
               console.log(res);
-              this.events.publish(res.total_carts);
-
+              // this.events.publish(res.total_carts);
+              this.api.addCartEvent(res.total_carts);
               let loader = this.loadingCtrl.create({
                 content: res.message,
                 duration: 3000
-              });
+              })
               loader.present();
+              loader.onDidDismiss(()=>{
+                this.api.events.subscribe("CartAdded",items=>{
+                  console.log(items);
+                  this.cartitem=items;
+                })
+
+              })
             })
           }
 
@@ -100,7 +107,16 @@ cartitem:any;
     console.log(id);
   }
 
-
+//   doRefresh(refresher) {
+//
+//     console.log('Begin async operation', refresher);
+//
+//     setTimeout(() => {
+//       console.log('Async operation has ended');
+//       refresher.complete();
+//     }, 2000);
+//
+// }
   ionViewDidLoad() {
     console.log('Hello DetailPage Page');
   }

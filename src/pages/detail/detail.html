@@ -28,9 +28,14 @@
   </ion-navbar>
 
 </ion-header> -->
+<!-- <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher> -->
 
 
 <ion-content style="background:#eee">
+  <!-- <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content> -->
   <ion-navbar>
     <button menuToggle>
       <ion-icon name="menu"></ion-icon>
@@ -43,6 +48,8 @@
    </button>
   </ion-buttons>
   </ion-navbar>
+  <!-- </ion-refresher-content>
+    </ion-refresher>  -->
 <ion-card>
       <ion-slides>
         <ion-slide *ngFor="let image of product.product_images">

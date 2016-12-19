@@ -59,7 +59,11 @@ cartitem:any;
     console.log('Welcome', item);
     this.cartitem=item;
   });
-
+  this.events.subscribe('CartAdded', (item) => {
+    // userEventData is an array of parameters, so grab our first and only arg
+    console.log('Welcome', item);
+    this.cartitem=item;
+  });
 
   }
 pushProduct(e){

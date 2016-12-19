@@ -14,9 +14,20 @@
 
 
 <ion-content padding>
+<!-- <ion-label color="primary" floating>Username</ion-label> -->
 <ion-input placeholder="Username" [(ngModel)]="user.un"></ion-input>
+<!-- <ion-label color="primary" floating>Password</ion-label> -->
 <ion-input placeholder="Password" [(ngModel)]="user.ps"></ion-input>
 <button ion-button full (click)="checklogin(user.un,user.ps)">Sign-in</button>
-{{hello}} 
+{{hello}}
 
 </ion-content>
+<!-- <ion-item>
+   <ion-label color="primary" floating>Floating Label</ion-label>
+   <ion-input></ion-input>
+ </ion-item>
+
+ <ion-item>
+   <ion-input placeholder="Clear Input" clearInput></ion-input>
+ </ion-item>
+</ion-list> -->

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController ,NavParams} from 'ionic-angular';
+import { NavController ,NavParams ,Events} from 'ionic-angular';
 import { ProductPage } from '../product/product';
 import { Api } from '../../providers/api';
 import { Shareservice } from '../../providers/shareservice';
@@ -29,7 +29,7 @@ export class ProductBasePage {
 
 
   constructor(public navCtrl: NavController , public navParams: NavParams, public api: Api,
-    public ss : Shareservice
+    public ss : Shareservice,public events: Events
   )  {
     // this.cartitem= this.navParams.get('cartItems')
 
@@ -38,9 +38,14 @@ export class ProductBasePage {
     console.log("Load Cart Successfully");
     console.log(res.count);
     this.cartitem=res.count;
-    this.api.createCartEvent(res.count)
+    this.api.createCartEvent(res.count);
 
   })
+  this.events.subscribe('CartAdded', (item) => {
+    // userEventData is an array of parameters, so grab our first and only arg
+    console.log('Welcome', item);
+    this.cartitem=item;
+  });
 }
   logout(){
   localStorage.clear();
