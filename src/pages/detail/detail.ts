@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams ,AlertController,LoadingController ,Events } from 'ionic-angular';
+import { NavController, NavParams ,AlertController,LoadingController ,Events} from 'ionic-angular';
 import { Api } from '../../providers/api';
 
 /*
@@ -93,6 +93,8 @@ cartitem:any;
                 this.api.events.subscribe("CartAdded",items=>{
                   console.log(items);
                   this.cartitem=items;
+
+
                 })
 
               })
