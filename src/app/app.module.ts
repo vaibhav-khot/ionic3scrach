@@ -9,6 +9,7 @@ import { ProductBasePage } from '../pages/productbase/productbase';
 import { ProductPage} from '../pages/product/product';
 import { ListPage} from '../pages/list/list';
 import { DetailPage} from '../pages/detail/detail';
+import { CartPage} from '../pages/cart/cart';
 // import { Default } from './default';
 
 import { Loginservice } from '../providers/loginservice';
@@ -28,7 +29,8 @@ import { HttpModule, RequestOptions, XHRBackend } from '@angular/http';
     ProductBasePage,
     ProductPage,
     ListPage,
-    DetailPage
+    DetailPage,
+    CartPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -42,7 +44,8 @@ import { HttpModule, RequestOptions, XHRBackend } from '@angular/http';
     ProductBasePage,
     ProductPage,
     ListPage,
-    DetailPage
+    DetailPage,
+    CartPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
   Loginservice,Httpservice,Api,Shareservice,Loader
