@@ -62,7 +62,7 @@ ion-thumbnail,ion-thumbanil>img{
     </button>
     <ion-title>Product</ion-title>
     <ion-buttons end>
-   <button ion-button>
+   <button ion-button (click)="api.openCart()">
      <!-- <ion-icon name="cart">{{cartitem}}</ion-icon> -->
 
        <ion-icon ios="ios-cart" md="md-cart">    {{cartitem}} Items</ion-icon>

@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { Httpservice } from './httpservice';
 import { Loader } from './loader';
-import { Events, LoadingController} from 'ionic-angular';
+import { Events, LoadingController , NavController} from 'ionic-angular';
+import { CartPage } from '../pages/cart/cart';
 
 
 // let loading = Loading.create({content:'My message'});
@@ -25,7 +26,8 @@ product:any;
   constructor(public http: Httpservice,
     public events: Events,
     // public loadingCtrl: LoadingController,
-     public loader: Loader
+     public loader: Loader,
+     public navCtrl: NavController
 
 
     ) {
@@ -134,7 +136,7 @@ return new Promise(resolve=>{
             //  console.log(data.total_carts);
              resolve(data);
              loading.dismiss();
-             
+
            })
          })
 
@@ -150,6 +152,13 @@ return new Promise(resolve=>{
     this.events.publish('CartAdded', items);
 
   }
+
+  //openCart method
+  openCart(){
+    this.navCtrl.push(CartPage);
+
+  }
+
 
   // second page (listen for the user created event)
   // events.subscribe('user:created', (userEventData) => {
