@@ -47,6 +47,15 @@ cartitem:any;
         console.log(res.count);
 
       })
+
+      this.api.events.subscribe("CartAdded",items=>{
+        console.log(items);
+        this.cartitem=items;
+
+
+      })
+
+
   }
   quantity(id){
     let prompt = this.alertCtrl.create({
