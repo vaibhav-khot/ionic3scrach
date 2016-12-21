@@ -154,10 +154,10 @@ return new Promise(resolve=>{
   }
 
   //openCart method
-  openCart(){
-    this.navCtrl.push(CartPage);
-
-  }
+  // openCart(){
+  //   this.navCtrl.push(CartPage);
+  //
+  // }
 
 
   // second page (listen for the user created event)
