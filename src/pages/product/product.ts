@@ -1,5 +1,5 @@
 import { Component , OnInit } from '@angular/core';
-import { NavController ,Events} from 'ionic-angular';
+import { NavController ,Events ,Slides} from 'ionic-angular';
 
 // import { Default } from '../../app/default';
 import { Loginservice } from '../../providers/loginservice';
@@ -28,6 +28,9 @@ export class ProductPage implements OnInit {
 //It is issential to intiate empty array
 cat:any={};
 cartitem:any;
+mySlideOptions = {
+    pager : true
+  };
 
 //  cat.catName:string[]=[];
 // cat.catImg:string[]=[];//Array<String>;

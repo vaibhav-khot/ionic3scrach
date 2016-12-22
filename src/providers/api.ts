@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 // import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Httpservice } from './httpservice';
-import { Loader } from './loader';
+
 import { Events, LoadingController} from 'ionic-angular';
 
 
@@ -25,7 +25,7 @@ product:any;
   constructor(public http: Httpservice,
     public events: Events,
     // public loadingCtrl: LoadingController,
-     public loader: Loader
+
 
 
     ) {
@@ -37,8 +37,7 @@ var url ="http://localhost:1337/staging.php-dev.in:8844/trainingapp/api/products
 //var url ="http://staging.php-dev.in:8844/trainingapp/api/products/getList?product_category_id="+id+"&limit=10&page=1";
 
 return new Promise(resolve=>{
-  let loading = this.loader.createLoader();
-  loading.present();
+
   this.http.get(url)
         // Call map on the response observable to get the parsed people object
         .map(res => res.json())
@@ -47,7 +46,7 @@ return new Promise(resolve=>{
         .subscribe(data=>{
           console.log(data);
           resolve(data);
-          loading.dismiss();
+
         });
       })
   }
@@ -55,8 +54,6 @@ return new Promise(resolve=>{
   loadProduct1(id,url):Promise<any>  {
 //var url ="http://localhost:1337/staging.php-dev.in:8844/trainingapp/api/products/getList?product_category_id="+id+"&limit=10&page=1";
 // var url ="http://staging.php-dev.in:8844/trainingapp/api/products/getList?product_category_id="+id+"&limit=10&page=1";
-let loading = this.loader.createLoader();
-loading.present();
 return new Promise(resolve=>{
   this.http.get(url)
         // Call map on the response observable to get the parsed people object
@@ -66,7 +63,7 @@ return new Promise(resolve=>{
         .subscribe(data=>{
           console.log(data);
           resolve(data);
-          loading.dismiss();
+
 
         });
       })
@@ -77,8 +74,8 @@ return new Promise(resolve=>{
 // var url ="http://staging.php-dev.in:8844/trainingapp/api/products/getList?product_category_id="+id+"&limit=10&page=1";
 var url ="http://localhost:1337/staging.php-dev.in:8844/trainingapp/api/products/getDetail?product_id="+id;
  //var url ="http://staging.php-dev.in:8844/trainingapp/api/products/getDetail?product_id="+id;
- let loading = this.loader.createLoader();
- loading.present();
+
+
 return new Promise(resolve=>{
   this.http.get(url)
         // Call map on the response observable to get the parsed people object
@@ -88,7 +85,7 @@ return new Promise(resolve=>{
         .subscribe(data=>{
           console.log(data);
           resolve(data);
-          loading.dismiss();
+
 
         });
       })
@@ -99,8 +96,7 @@ return new Promise(resolve=>{
 // var url ="http://staging.php-dev.in:8844/trainingapp/api/products/getList?product_category_id="+id+"&limit=10&page=1";
  var url ="http://localhost:1337/staging.php-dev.in:8844/trainingapp/api/cart";
  //var url ="http://staging.php-dev.in:8844/trainingapp/api/cart";
- let loading = this.loader.createLoader();
- loading.present();
+
 return new Promise(resolve=>{
   this.http.get(url)
         // Call map on the response observable to get the parsed people object
@@ -110,7 +106,7 @@ return new Promise(resolve=>{
         .subscribe(data=>{
           console.log(data);
           resolve(data);
-          loading.dismiss();
+
 
         });
       })
@@ -121,8 +117,7 @@ return new Promise(resolve=>{
     data.append("quantity", quantity);//
     var url ="http://localhost:1337/staging.php-dev.in:8844/trainingapp/api/addToCart";
     //var url ="http://staging.php-dev.in:8844/trainingapp/api/cart";
-    let loading = this.loader.createLoader();
-    loading.present();
+
    return new Promise(resolve=>{
      this.http.post(url,data)
            // Call map on the response observable to get the parsed people object
@@ -133,8 +128,8 @@ return new Promise(resolve=>{
              console.log(data);
             //  console.log(data.total_carts);
              resolve(data);
-             loading.dismiss();
              
+
            })
          })
 

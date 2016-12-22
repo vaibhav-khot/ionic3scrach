@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
-import { BasePage } from '../pages/base/base';
+import { LoginPage } from '../pages/login/login';
+import { CartPage } from '../pages/cart/cart';
 
 
 @Component({
   template: `<ion-nav [root]="rootPage"></ion-nav>`
 })
 export class MyApp {
-  rootPage = BasePage;
+  rootPage = LoginPage;
 
 login:any=true;
 
@@ -21,4 +22,9 @@ login:any=true;
       Splashscreen.hide();
     });
   }
+  openCart(){
+
+  }
+
+
 }

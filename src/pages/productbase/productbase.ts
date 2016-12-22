@@ -3,6 +3,7 @@ import { NavController ,NavParams ,Events} from 'ionic-angular';
 import { ProductPage } from '../product/product';
 import { Api } from '../../providers/api';
 import { Shareservice } from '../../providers/shareservice';
+// import { CartPage } from '../cart/cart';
 // import { ProductBasePage } from '../productbase/productbase';
 
 /*
@@ -52,8 +53,10 @@ export class ProductBasePage {
   this.navCtrl.pop();
 
   }
+
   ionViewDidLoad() {
     console.log('Hello ProductBasePage Page');
   }
+
 
 }

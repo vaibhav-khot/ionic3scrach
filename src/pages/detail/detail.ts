@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams ,AlertController,LoadingController ,Events} from 'ionic-angular';
 import { Api } from '../../providers/api';
+import { CartPage } from '../cart/cart';
+
 
 /*
   Generated class for the Detail page.
@@ -93,20 +95,8 @@ cartitem:any;
               console.log(res);
               // this.events.publish(res.total_carts);
               this.api.addCartEvent(res.total_carts);
-              let loader = this.loadingCtrl.create({
-                content: res.message,
-                duration: 3000
-              })
-              loader.present();
-              loader.onDidDismiss(()=>{
-                this.api.events.subscribe("CartAdded",items=>{
-                  console.log(items);
-                  this.cartitem=items;
 
-
-                })
-
-              })
+              
             })
           }
 
@@ -117,7 +107,9 @@ cartitem:any;
     prompt.present();
     console.log(id);
   }
-
+  openCart(){
+    this.navCtrl.push(CartPage)
+  }
 //   doRefresh(refresher) {
 //
 //     console.log('Begin async operation', refresher);

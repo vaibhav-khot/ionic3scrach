@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { ProductBasePage } from '../productbase/productbase';
+import { CartPage } from '../cart/cart';
 // import { ProducPage } from '../product/product';
 /*
   Generated class for the Base page.
@@ -25,6 +26,9 @@ ionViewDidLoad() {
         this.navCtrl.push(ProductBasePage);
 
     }else{this.navCtrl.push(LoginPage);}
+  }
+  openCart(){
+    this.navCtrl.push(CartPage);
   }
 
 }

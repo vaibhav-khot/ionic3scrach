@@ -21,16 +21,44 @@
      <ion-title>Product</ion-title>
    </ion-navbar>
  </ion-header> -->
- <ion-content  class="card-background-page" >
+ <style>
+ .card-background-page {
 
+   ion-card {
+     position: relative;
+     text-align: center;
+   }
+
+   .card-title {
+     position: absolute;
+     top: 36%;
+
+     font-size: 2.0em;
+     width: 100%;
+     font-weight: bold;
+     color: #fff;
+   }
+
+   .card-subtitle {
+     font-size: 1.0em;
+     position: absolute;
+     top: 52%;
+     width: 100%;
+     color: #fff;
+   }
+
+ }
+
+ </style>
+<ion-content>
    <!-- <ion-card-header> -->
-     <ion-navbar>
-       <button menuToggle>
+     <ion-navbar color="primary">
+       <button menuToggle >
          <ion-icon name="menu"></ion-icon>
        </button>
        <ion-title>Product</ion-title>
        <ion-buttons end>
-      <button ion-button>
+      <button ion-button (click)="openCart()">
         <!-- <ion-icon name="cart">{{cartitem}}</ion-icon> -->
 
           <ion-icon ios="ios-cart" md="md-cart">    {{cartitem}} Items</ion-icon>
@@ -38,7 +66,7 @@
     </ion-buttons>
      </ion-navbar>
 
-     <ion-content class="card-background-page">
+
 
        <!-- <ion-card>
          <img src="img/card-saopaolo.png"/>
@@ -48,16 +76,36 @@
 
 
   <!-- </ion-card-header> -->
-<ion-card *ngFor="let cat1 of cat.data" (click)="pushProduct(cat1)">
+  <ion-slides [options]="mySlideOptions">
+
+    <ion-slide>
+      <img src="../assets/categories/category1.jpg" alt="" />
+    </ion-slide>
+    <ion-slide>
+      <img src="../assets/categories/category2.jpg" alt="" />
+    </ion-slide>
+    <ion-slide>
+      <img src="../assets/categories/category3.jpg" alt="" style="height:100%"/>
+      </ion-slide>
+
+  </ion-slides>
+
+
+
+
+  <!-- <div class="product_cont"> -->
+
+
+<!-- <ion-card *ngFor="let cat1 of cat.data" (click)="pushProduct(cat1)"> -->
 <!-- {{catPid}} -->
 <!-- <ion-card-header>{{cat1.name}}</ion-card-header> -->
 
-   <img src="{{cat1.product_images}}"/>
+   <!-- <img src="{{cat1.product_images}}"/> -->
    <!-- <div class="card-title">{{cat1.name}}</div> -->
-   <button id="{{cat1.name}}" ion-item >
-         <ion-icon name="cart" item-left ></ion-icon>
-        {{cat1.name}}
-       </button>
+   <!-- <button id="{{cat1.name}}" ion-item > -->
+         <!-- <ion-icon name="cart" item-left ></ion-icon> -->
+        <!-- {{cat1.name}} -->
+       <!-- </button> -->
 
 
 
@@ -67,5 +115,26 @@
     </div>
     </div>
     </div> -->
-  </ion-card>
-<ion-content>
+  <!-- </ion-card> -->
+  <!-- </div> -->
+  <ion-grid >
+    <ion-row>
+  <ion-col>
+    <ion-col width-50>This column will take 10% of space</ion-col>
+  </ion-col>
+  <ion-col>
+    <ion-col width-50>This column will take 10% of space</ion-col>
+  </ion-col>
+</ion-row>
+<ion-row>
+<ion-col>
+<ion-col width-50>This column will take 10% of space</ion-col>
+</ion-col>
+<ion-col>
+<ion-col width-50>This column will take 10% of space</ion-col>
+</ion-col>
+</ion-row>
+
+</ion-grid>
+
+</ion-content>

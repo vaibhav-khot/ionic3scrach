@@ -23,7 +23,7 @@ import 'rxjs/Rx';
 export class LoginPage {
  c1:any=false;
  user={un:"",ps:""};
- hello:string;
+ login_err:string;
  cartitems:number;
 
   handleError(error: any): Promise<any> {
@@ -38,52 +38,50 @@ export class LoginPage {
    public loadingCtrl: LoadingController,
    public api: Api
 
- ) {}
+ ) {
+
+  // this.checklogin();
+ }
   ionViewDidLoad() {
     console.log('Hello LoginPage Page');
   }
 
-checklogin(un,ps):void {
+validatelogin(un,ps):void {
     console.log('Checking Login');
     console.log(this.user);
     // Create the popup
+    let loadingPopup = this.loadingCtrl.create({
+          content: 'Loading data...',
+          dismissOnPageChange:true
+        });
+loadingPopup.present();
     this.loginservice.loadlogin(this.user.un,this.user.ps).then(res=>{
-      console.log("a===================");
-      console.log(res);
-      console.log(JSON.stringify(res));
+      console.log(res,"return by promise");
+      console.log(res.message,"parsed message");
+      loadingPopup.dismiss();
+        if(res.status===200){
 
 
-      // this.hello=JSON.stringify(res);
-      if(res.status===200){
-        let loadingPopup = this.loadingCtrl.create({
-            content: 'Loading data...'
-          });
-          // this.api.loadCart().then(res=>{
-          //
-          // console.log("Load Cart Successfully");
-          // console.log(res.count);
-          // this.cartitems=res.count;
-          //
-          // })
           // Show the popup
-          loadingPopup.present();
-        this.hello=JSON.stringify(res.message);
 
-        setTimeout(() => {
-          this.hello=JSON.stringify(res.message);
-          loadingPopup.dismiss();
+        this.login_err=JSON.stringify(res.message);
+
           this.navCtrl.push(ProductBasePage);
-        }, 3000);
+
 
         // this.navCtrl.push(ProductBasePage);
       } else {
-        this.hello=res.json().user_msg
-        // this.navCtrl.push(BasePage);
+        if(res.status==401){
+          this.login_err="Username/Password invalid";
+        }
+
+
       }
 
       // console.log("hello===================");
-      // console.log(this.hello);
+       console.log(this.login_err,"Server message");
     })
+
 
 
       // if (un=="vaibhav" && ps==123){
@@ -92,5 +90,12 @@ checklogin(un,ps):void {
       // } else {
       // alert("Login Fail");
       // }
+
+}
+checklogin():void {
+  if(localStorage.getItem("login_data")){
+      this.navCtrl.push(ProductBasePage);
+
+  }else{this.navCtrl.push(LoginPage);}
 }
 }

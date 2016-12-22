@@ -1,3 +1,28 @@
-page-login {
+ion-content{
+  background-image: url("../../assets/images/login_bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
+.login-content{
+margin-top: 40%;
+
+}
+
+.no_input_bg{
+  background-color: rgba(0,0,0,0);
+border: 1px solid #fff !important;
+margin-bottom: 15px;
+}
+
+.no_input_bg .item-inner{
+border: none !important;
+}
+.login_btn{
+  height: 47px !important;
+
+}
+
+.round{
+  border-radius: 5px !important;
 }
