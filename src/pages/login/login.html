@@ -16,12 +16,12 @@
 <h1 color="light" text-center>NeoSTORE</h1>
     <ion-item class="no_input_bg round">
       <ion-label><ion-icon color="light" name="md-person"></ion-icon></ion-label>
-      <ion-input type="text" [(ngModel)]="user.un"></ion-input>
+      <ion-input type="text" [(ngModel)]="user.un" placeholder="Username"></ion-input>
     </ion-item>
 
     <ion-item class="no_input_bg round">
       <ion-label><ion-icon color="light" name="md-key" ></ion-icon></ion-label>
-      <ion-input type="password" [(ngModel)]="user.ps"></ion-input>
+      <ion-input type="password" [(ngModel)]="user.ps" placeholder="Password"></ion-input>
     </ion-item>
 
 <button class="round login_btn" ion-button full color="light" type="button" name="button" (click)="validatelogin()"><span color="primary" class="text-lg">LOGIN</span></button>
