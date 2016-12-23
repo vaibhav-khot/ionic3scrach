@@ -36,18 +36,25 @@
 </ion-menu>
 
 <ion-nav id="nav" #content [root]="rootPage"></ion-nav> -->
-<ion-menu [content]="content">
 
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Login</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <ion-content>
-    <ion-avatar item-left>
-      <img src="https://d13yacurqjgara.cloudfront.net/users/128356/screenshots/1752293/lorenz.png">
-    </ion-avatar>
+
+
+  <ion-menu [content]="content">
+
+    <ion-item class="item-profile">
+      <div class="item-avatar">
+        <img src="../assets/categories/category1.jpg">
+      </div>
+    </ion-item>
+
+    <!-- <ion-avatar >
+      <img src="../assets/categories/category1.jpg">
+    </ion-avatar> -->
+
+
+
+
   <ion-list>
     <ion-item>
       <ion-icon name="add"></ion-icon>
@@ -84,8 +91,9 @@
       <button ion-button full color="light" (click)="logout()">Log-Out</button>
     </ion-item>
   </ion-list>
-  </ion-content>
+
 
 </ion-menu>
+
 
 <ion-nav id="nav" [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

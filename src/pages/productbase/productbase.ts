@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController ,NavParams ,Events} from 'ionic-angular';
+import { NavController ,NavParams ,Events,App} from 'ionic-angular';
 import { ProductPage } from '../product/product';
+import { BasePage } from '../base/base';
+import { LoginPage } from '../login/login';
 import { Api } from '../../providers/api';
 import { Shareservice } from '../../providers/shareservice';
 // import { CartPage } from '../cart/cart';
@@ -30,7 +32,7 @@ export class ProductBasePage {
 
 
   constructor(public navCtrl: NavController , public navParams: NavParams, public api: Api,
-    public ss : Shareservice,public events: Events
+    public ss : Shareservice,public events: Events,public appCtrl: App
   )  {
     // this.cartitem= this.navParams.get('cartItems')
 
@@ -50,7 +52,14 @@ export class ProductBasePage {
 }
   logout(){
   localStorage.clear();
-  this.navCtrl.pop();
+  this.navCtrl.popToRoot().then(res=>{
+      this.navCtrl.push(LoginPage);
+  });
+
+
+  console.log(this.appCtrl.getRootNav());
+  console.log(this.navCtrl.popToRoot());
+  // this.appCtrl.getRootNav().push();
 
   }
 

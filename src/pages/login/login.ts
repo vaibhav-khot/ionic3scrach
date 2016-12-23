@@ -92,10 +92,5 @@ loadingPopup.present();
       // }
 
 }
-checklogin():void {
-  if(localStorage.getItem("login_data")){
-      this.navCtrl.push(ProductBasePage);
 
-  }else{this.navCtrl.push(LoginPage);}
-}
 }

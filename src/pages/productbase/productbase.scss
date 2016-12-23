@@ -1,3 +1,30 @@
 page-productbase {
 
 }
+ion-item {
+background-color: #000 !important;
+}
+ion-avatar{
+  // background-color: #000 !important;
+}
+.item-profile {
+  height: 150px;
+  text-align: center;
+
+}
+.item-avatar  img:first-child {
+  max-width: 100px;
+  max-height: 100px;
+  border: 6px solid white;
+    border-radius: 50%;
+}
+// .menu-inner{
+//   background-color: #000;
+// }
+ion-menu .menu-inner {
+  background-color: #000 !important;
+
+}
+ion-label{
+  color: #eee!important;
+}

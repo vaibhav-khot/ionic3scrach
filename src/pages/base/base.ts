@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { LoginPage } from '../login/login';
 import { ProductBasePage } from '../productbase/productbase';
-import { CartPage } from '../cart/cart';
-// import { ProducPage } from '../product/product';
+import { LoginPage } from '../login/login';
+
 /*
   Generated class for the Base page.
 
@@ -16,19 +15,20 @@ import { CartPage } from '../cart/cart';
 })
 export class BasePage {
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController) {
+    this.checklogin();
+  }
 
-ionViewDidLoad() {
+  ionViewDidLoad() {
     console.log('Hello BasePage Page');
   }
-  takeMeLogin():void {
+  checklogin():void {
     if(localStorage.getItem("login_data")){
         this.navCtrl.push(ProductBasePage);
 
-    }else{this.navCtrl.push(LoginPage);}
-  }
-  openCart(){
-    this.navCtrl.push(CartPage);
+    } else
+    {
+      this.navCtrl.push(LoginPage);}
   }
 
 }

@@ -1,6 +1,12 @@
 page-product {
-
+background-color: #eee !important;
 }
+
+@font-face {
+font-family: icomoon;
+src: url("../../assets/font/icomoon.ttf");
+}
+
 button{
   border: 0 !important;
 }
@@ -16,6 +22,27 @@ ion-row{
   background-color:  #eee;
 }
 ion-col{
-  background-color: #ea3a3a !important;
-    border: 8px solid white;
+  // background-color: #f91623 !important;
+  border: 8px solid white;
+}
+
+.card {
+float:left;
+max-width:50%;
+}
+
+// .icon {
+// font-family: icomoon !important;
+// content: \ue903 !important;
+// }
+.icon_label{
+  font-size: 2em;
+  font-weight: bold;
+  color: #eee;
+}
+.custom{
+  order: 3 !important;
+  background: none !important;
+  font-size: x-large !important;
+  color: #eee;
 }
