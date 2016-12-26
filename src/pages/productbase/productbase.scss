@@ -2,14 +2,16 @@ page-productbase {
 
 }
 ion-item {
-background-color: #000 !important;
+background-color: rgba(40,40,40,1) !important;
 }
 ion-avatar{
   // background-color: #000 !important;
 }
-.item-profile {
+.item-profile .item-inner{
   height: 150px;
   text-align: center;
+  // border-bottom: 1px solid #dedede;
+  border-bottom: none !important;
 
 }
 .item-avatar  img:first-child {
@@ -21,10 +23,22 @@ ion-avatar{
 // .menu-inner{
 //   background-color: #000;
 // }
-ion-menu .menu-inner {
+.side_menu_button_menu .menu-inner {
   background-color: #000 !important;
 
 }
 ion-label{
   color: #eee!important;
+}
+
+.side_menu_button {
+background-color: rgba(40,40,40,1) !important;
+height: 4.6rem !important;
+text-transform: none !important;
+
+
+}
+.side_menu_button .button-inner{
+justify-content: flex-start;
+
 }

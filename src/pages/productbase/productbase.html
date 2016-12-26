@@ -40,13 +40,19 @@
 
 
 
-  <ion-menu [content]="content">
-
+  <ion-menu [content]="content" class="side_menu_button_menu">
+<ion-list>
     <ion-item class="item-profile">
       <div class="item-avatar">
         <img src="../assets/categories/category1.jpg">
       </div>
+      <div style="font-size: x-large;font-weight: 900;">{{Fn}} {{ln}}</div>
+      <div>{{em}}</div>
+
     </ion-item>
+
+
+
 
     <!-- <ion-avatar >
       <img src="../assets/categories/category1.jpg">
@@ -55,12 +61,24 @@
 
 
 
-  <ion-list>
-    <ion-item>
-      <ion-icon name="add"></ion-icon>
+
+
+      <!-- <ion-icon name="add"></ion-icon>
       <ion-label>FIRST-NAME</ion-label>
-      <ion-label>{{Fn}}</ion-label>
-    </ion-item>
+      <ion-label>{{Fn}}</ion-label> -->
+
+      <button ion-button full class="side_menu_button"><ion-icon name="cart" style="margin-right: 15px;"></ion-icon><span style="">My-Cart</span></button>
+      <button ion-button full class="side_menu_button"><ion-icon name="cart" style="margin-right: 15px;"></ion-icon><span style="">Tables</span></button>
+      <button ion-button full class="side_menu_button"><ion-icon name="cart" style="margin-right: 15px;"></ion-icon><span style="">Sofas</span></button>
+      <button ion-button full class="side_menu_button"><ion-icon name="cart" style="margin-right: 15px;"></ion-icon><span style="">Chairs</span></button>
+      <button ion-button full class="side_menu_button"><ion-icon name="cart" style="margin-right: 15px;"></ion-icon><span style="">Cubboards</span></button>
+      <button ion-button full class="side_menu_button"><ion-icon name="cart" style="margin-right: 15px;"></ion-icon><span style="">My Account</span></button>
+      <button ion-button full class="side_menu_button"><ion-icon name="navigate" style="margin-right: 15px;"></ion-icon><span style="">Store Locator</span></button>
+      <button ion-button full class="side_menu_button"><ion-icon name="list-box" style="margin-right: 15px;"></ion-icon><span style="">My Orders</span></button>
+      <button ion-button full class="side_menu_button" (click)="logout()"><ion-icon name="log-out" style="margin-right: 15px;"></ion-icon><span style="">Log Out</span></button>
+
+</ion-list>
+    <!-- <ion-list>
     <ion-item>
       <ion-icon name="add"></ion-icon>
       <ion-label>LAST-NAME</ion-label>
@@ -90,7 +108,7 @@
 
       <button ion-button full color="light" (click)="logout()">Log-Out</button>
     </ion-item>
-  </ion-list>
+  </ion-list> -->
 
 
 </ion-menu>
