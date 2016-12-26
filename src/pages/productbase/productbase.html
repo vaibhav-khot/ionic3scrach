@@ -40,8 +40,10 @@
 
 
 
+
   <ion-menu [content]="content" class="side_menu_button_menu">
-<ion-list>
+
+<ion-list style="height:100vh !important;overflow-y :scroll">
     <ion-item class="item-profile">
       <div class="item-avatar">
         <img src="../assets/categories/category1.jpg">
@@ -66,17 +68,45 @@
       <!-- <ion-icon name="add"></ion-icon>
       <ion-label>FIRST-NAME</ion-label>
       <ion-label>{{Fn}}</ion-label> -->
-
-      <button ion-button full class="side_menu_button"><ion-icon name="cart" style="margin-right: 15px;"></ion-icon><span style="">My-Cart</span></button>
-      <button ion-button full class="side_menu_button"><ion-icon name="cart" style="margin-right: 15px;"></ion-icon><span style="">Tables</span></button>
-      <button ion-button full class="side_menu_button"><ion-icon name="cart" style="margin-right: 15px;"></ion-icon><span style="">Sofas</span></button>
-      <button ion-button full class="side_menu_button"><ion-icon name="cart" style="margin-right: 15px;"></ion-icon><span style="">Chairs</span></button>
-      <button ion-button full class="side_menu_button"><ion-icon name="cart" style="margin-right: 15px;"></ion-icon><span style="">Cubboards</span></button>
-      <button ion-button full class="side_menu_button"><ion-icon name="cart" style="margin-right: 15px;"></ion-icon><span style="">My Account</span></button>
-      <button ion-button full class="side_menu_button"><ion-icon name="navigate" style="margin-right: 15px;"></ion-icon><span style="">Store Locator</span></button>
-      <button ion-button full class="side_menu_button"><ion-icon name="list-box" style="margin-right: 15px;"></ion-icon><span style="">My Orders</span></button>
-      <button ion-button full class="side_menu_button" (click)="logout()"><ion-icon name="log-out" style="margin-right: 15px;"></ion-icon><span style="">Log Out</span></button>
-
+<ion-item>
+      <button ion-button full class="side_menu_button">
+        <ion-icon name="cart" style="margin-right: 15px;"></ion-icon>
+        <span style="">My-Cart</span>
+      </button>
+      <button ion-button full class="side_menu_button" (click)="pushProduct(1)">
+        <ion-icon name="cart" style="margin-right: 15px;"></ion-icon>
+        <span style="">Tables</span>
+      </button>
+      <button ion-button full class="side_menu_button">
+        <ion-icon name="cart" style="margin-right: 15px;"></ion-icon>
+        <span style="">Sofas</span>
+      </button>
+      <button ion-button full class="side_menu_button">
+        <ion-icon name="cart" style="margin-right: 15px;"></ion-icon>
+        <span style="">Chairs</span>
+      </button>
+      <button ion-button full class="side_menu_button">
+        <ion-icon name="cart" style="margin-right: 15px;"></ion-icon>
+        <span style="">Cubboards</span>
+      </button>
+      <button ion-button full class="side_menu_button">
+        <ion-icon name="cart" style="margin-right: 15px;"></ion-icon>
+        <span style="">My Account</span>
+      </button>
+      <button ion-button full class="side_menu_button">
+        <ion-icon name="navigate" style="margin-right: 15px;"></ion-icon>
+        <span style="">Store Locator</span>
+      </button>
+      <button ion-button full class="side_menu_button">
+        <ion-icon name="list-box" style="margin-right: 15px;"></ion-icon>
+        <span style="">My Orders</span>
+      </button>
+      <button ion-button full class="side_menu_button" (click)="logout()">
+        <ion-icon name="log-out" style="margin-right: 15px;"></ion-icon>
+        <span style="">Log Out</span>
+      </button>
+      
+</ion-item>
 </ion-list>
     <!-- <ion-list>
     <ion-item>

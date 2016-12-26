@@ -56,13 +56,16 @@ export class ProductBasePage {
       this.navCtrl.push(LoginPage);
   });
 
-
   console.log(this.appCtrl.getRootNav());
   console.log(this.navCtrl.popToRoot());
   // this.appCtrl.getRootNav().push();
 
   }
 
+  pushProduct(e){
+console.log(e);
+
+  }
   ionViewDidLoad() {
     console.log('Hello ProductBasePage Page');
   }

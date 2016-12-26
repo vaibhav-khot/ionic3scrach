@@ -82,12 +82,12 @@ export class Loginservice {
        })
     }
 
-public getProductCategories():Promise<any> {
-
-  return new Promise(resolve=> {
-    resolve(Default.API.mock.getProductCategories())
-  })
-}
+// public getProductCategories():Promise<any> {
+//
+//   return new Promise(resolve=> {
+//     resolve(Default.API.mock.getProductCategories())
+//   })
+// }
 
 
 

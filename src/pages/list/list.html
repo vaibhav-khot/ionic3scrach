@@ -35,11 +35,12 @@
     display: inline;
   }
   */
-  .cards{
+  /*.cards{
 float:left;
 max-width:50%;
 max-height: 50%;
-  }/*
+  }*/
+  /*
 ion-thumbnail,ion-thumbanil>img{
   max-height:180px;min-height:180px;
 }*/
@@ -56,11 +57,11 @@ ion-thumbnail,ion-thumbanil>img{
 
 <ion-content>
   <!-- <ion-scroll direction="x" class="wide-as-needed"> -->
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Product</ion-title>
+    <ion-title>{{title}}</ion-title>
     <ion-buttons end>
    <button ion-button>
      <!-- <ion-icon name="cart">{{cartitem}}</ion-icon> -->
@@ -71,66 +72,42 @@ ion-thumbnail,ion-thumbanil>img{
   </ion-navbar>
 
 
-
-<div class="scroll">
-
-
-  <div class="cards" *ngFor="let product of products" >
-<ion-card (click)='viewProduct(product)'>
-  <!-- (click)='viewProduct(product.product_id)' -->
-      <ion-card-header>
-        {{product.name}}
-      </ion-card-header>
-      <ion-thumbnail>
-        <img [src]='product.product_images' />
-      </ion-thumbnail>
-      <ion-grid>
-        <ion-row>
-          <ion-col width-50>
-            <ion-chip color='danger'><ion-label>Rs.{{product.cost}}</ion-label></ion-chip>
-             </ion-col>
-
-          <ion-col width-50>
-            <ion-chip><ion-label>+ ADD</ion-label></ion-chip>
-            </ion-col>
-
-        </ion-row>
-      </ion-grid>
-    </ion-card>
-
-  </div>
-  </div>
-
-  <div class="scroll">
-
-
-    <div class="cards" *ngFor="let product of products1" >
+<div *ngFor="let product of products" >
   <ion-card (click)='viewProduct(product)'>
-    <!-- (click)='viewProduct(product.product_id)' -->
-        <ion-card-header>
-          {{product.name}}
-        </ion-card-header>
-        <ion-thumbnail>
-          <img [src]='product.product_images' />
-        </ion-thumbnail>
-        <ion-grid>
-          <ion-row>
-            <ion-col width-50>
-              <ion-chip color='danger'><ion-label>Rs.{{product.cost}}</ion-label></ion-chip>
-               </ion-col>
 
-            <ion-col width-50>
-              <ion-chip><ion-label>Details</ion-label></ion-chip>
-              </ion-col>
+    <ion-item class="card">
+      <ion-thumbnail item-left>
+        <img [src]='product.product_images' style="max-width: 10rem !important;"/>
+      </ion-thumbnail>
+      <p style="font-size:1.2em;"> {{product.name}}</p>
+      <p style="font-size:0.7em;"> {{product.producer}}</p>
+      <p color="danger">Rs.{{product.cost}}
+      <ion-icon *ngIf="product.rating>=1" color='danger' name="md-star"></ion-icon>
+      <ion-icon *ngIf="product.rating>=2" color='danger' name="md-star"></ion-icon>
+      <ion-icon *ngIf="product.rating>=3" color='danger' name="md-star"></ion-icon>
+      <ion-icon *ngIf="product.rating>=4" color='danger' name="md-star"></ion-icon>
+      <ion-icon *ngIf="product.rating>=5" color='danger' name="md-star"></ion-icon>
+      <ion-icon *ngIf="product.rating%1!=0" color='danger' name="md-star-half"></ion-icon>
+      <ion-icon *ngIf="product.rating==0" color='danger' name="md-star-outline"></ion-icon>
+      <ion-icon *ngIf="product.rating<=1" color='danger' name="md-star-outline"></ion-icon>
+      <ion-icon *ngIf="product.rating<=2" color='danger' name="md-star-outline"></ion-icon>
+      <ion-icon *ngIf="product.rating<=3" color='danger' name="md-star-outline"></ion-icon>
+      <ion-icon *ngIf="product.rating<=4" color='danger' name="md-star-outline"></ion-icon></p>
 
-          </ion-row>
-        </ion-grid>
-      </ion-card>
-
-    </div>
-    </div>
+    </ion-item>
 
 
+</ion-card>
 
+
+
+</div>
+
+<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+   <ion-infinite-scroll-content>
+
+
+   </ion-infinite-scroll-content>
+ </ion-infinite-scroll>
 <!-- </ion-scroll> -->
 </ion-content>

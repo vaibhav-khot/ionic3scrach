@@ -7,6 +7,7 @@ import { Shareservice } from '../../providers/shareservice';
 import { ListPage } from '../list/list';
 import { ProductBasePage } from '../productbase/productbase';
 import { Api } from '../../providers/api';
+import { Default } from '../../app/default';
 
 
 
@@ -47,7 +48,7 @@ mySlideOptions = {
     this.cat.data.catImg=[];//Array<String>;
     this.cat.data.catLink=[];//Array<String>;
     this.cat.data.catPid=[];//Array<String>;
-
+    console.log(JSON.stringify(Default.API.mock._d.data[0]))
     // console.log(ss.getcart());
   //   this.api.loadCart().then(res=>{
   //
@@ -74,41 +75,65 @@ pushProduct(e){
 // this.navCtrl.push(TablePage);
 console.log("productpage navctrl");
 console.log(e);
-this.navCtrl.push(ListPage,{e,item : this.cartitem});
+switch (e)
+{
+  case 1:
+  this.navCtrl.push(ListPage,{e:Default.API.mock._d.data[0],item : this.cartitem});
+  break;
+  case 2:
+  this.navCtrl.push(ListPage,{e:Default.API.mock._d.data[1],item : this.cartitem});
+
+  break;
+  case 3:
+  this.navCtrl.push(ListPage,{e:Default.API.mock._d.data[2],item : this.cartitem});
+
+  break;
+  case 4:
+  this.navCtrl.push(ListPage,{e:Default.API.mock._d.data[3],item : this.cartitem});
+
+  break;
+  case 5:
+  this.navCtrl.push(ListPage,{e:Default.API.mock._d.data[4],item : this.cartitem});
+
+  break;
+  default :
+  console.log("Default Switch");
+}
+
 }
 
 ngOnInit(){
   // this.cartitem=this.ss.getcart();
     this.cartitem=this.ss.getcart();
-  this.http.getProductCategories().then(res=>{
-    // console.log(JSON.stringify(_.keys(res)));
-  console.log("Product TS");
-
-  console.log(JSON.stringify(res));
-  console.log(res.data);
-  this.cat.data=res.data;
-
-//     for(var i in res.data)
-//     {
-//       console.log(res.data[i].name);
-//       console.log(res.data[i].product_images);
-//       console.log(res.data[i].link);
-//       console.log(res.data[i].product_category_id);
-//        this.cat.data.catName.push(res.data[i].name);
-//        this.cat.data.catImg.push(res.data[i].product_images);
-//        this.cat.data.catLink.push(res.data[i].link);
-//        this.cat.data.catPid.push(res.data[i].product_category_id);
-//       //
+//   this.http.getProductCategories().then(res=>{
+//     // console.log(JSON.stringify(_.keys(res)));
+//   console.log("Product TS");
 //
-// }
-console.log(this.cat);
-
-
-
-
-// this.catName=JSON.stringify(res);
-
-  });
+//   console.log(JSON.stringify(res));
+//   console.log(res.data);
+//   this.cat.data=res.data;
+//
+// //     for(var i in res.data)
+// //     {
+// //       console.log(res.data[i].name);
+// //       console.log(res.data[i].product_images);
+// //       console.log(res.data[i].link);
+// //       console.log(res.data[i].product_category_id);
+// //        this.cat.data.catName.push(res.data[i].name);
+// //        this.cat.data.catImg.push(res.data[i].product_images);
+// //        this.cat.data.catLink.push(res.data[i].link);
+// //        this.cat.data.catPid.push(res.data[i].product_category_id);
+// //       //
+// //
+// // }
+// console.log(this.cat);
+//
+//
+//
+//
+// // this.catName=JSON.stringify(res);
+//
+//   });
   // console.log(this.cat.catPid[0])
   }
 

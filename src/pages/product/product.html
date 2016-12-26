@@ -78,14 +78,20 @@
   <!-- </ion-card-header> -->
   <ion-slides [options]="mySlideOptions">
 
-    <ion-slide>
+    <ion-slide (click)="pushProduct(1)">
       <img src="../assets/categories/category1.jpg" alt="" />
     </ion-slide>
-    <ion-slide>
+    <ion-slide (click)="pushProduct(2)">
       <img src="../assets/categories/category2.jpg" alt="" />
     </ion-slide>
-    <ion-slide>
+    <ion-slide (click)="pushProduct(3)">
       <img src="../assets/categories/category3.jpg" alt="" style="height:100%"/>
+      </ion-slide>
+    <ion-slide (click)="pushProduct(4)">
+      <img src="../assets/categories/category4.jpg" alt="" style="height:100%"/>
+      </ion-slide>
+    <ion-slide (click)="pushProduct(5)">
+      <img src="../assets/categories/category5.jpg" alt="" style="height:100%"/>
       </ion-slide>
 
   </ion-slides>
@@ -120,14 +126,15 @@
   <ion-grid >
     <ion-row>
 
-    <ion-col width-50 style="background-color: #d60919 !important;"><span class="icon_label" style="float: right;">Table</span>
+    <ion-col width-50 style="background-color: #d60919 !important;" (click)="pushProduct(1)">
+      <span class="icon_label" style="float: right;">Table</span>
       <img src="../assets/images/table.png" alt="" />
 
       <!-- <ion-label class="icon"></ion-label> -->
 </ion-col>
 
 
-    <ion-col width-50 style="background-color: #ca0007; !important;">
+    <ion-col width-50 style="background-color: #ca0007; !important;" (click)="pushProduct(2)">
       <img src="../assets/images/sofa.png" alt="" />
       <span class="icon_label">Sofa</span>
     </ion-col>
@@ -135,7 +142,7 @@
 </ion-row>
 <ion-row>
 
-<ion-col width-50 style="background-color: #f91623; !important;">
+<ion-col width-50 style="background-color: #f91623; !important;" (click)="pushProduct(3)">
   <span class="icon_label">Chairs</span>
   <img src="../assets/images/chair.png" alt="" style="float: right; !important;"/>
 
@@ -144,7 +151,7 @@
 </ion-col>
 
 
-<ion-col width-50 style="background-color: #b60412; !important;">
+<ion-col width-50 style="background-color: #b60412; !important;" (click)="pushProduct(4)">
   <img src="../assets/images/cupboard.png" alt="" />
   <span class="icon_label" style="float: right;">Cupboard</span>
 
