@@ -128,14 +128,17 @@
 
     <ion-col width-50 style="background-color: #d60919 !important;" (click)="pushProduct(1)">
       <span class="icon_label" style="float: right;">Table</span>
-      <img src="../assets/images/table.png" alt="" />
+      <!-- <img src="../assets/images/table.png" alt="" /> -->
+      <span class="icon-dining-room"></span>
 
       <!-- <ion-label class="icon"></ion-label> -->
 </ion-col>
 
 
     <ion-col width-50 style="background-color: #ca0007; !important;" (click)="pushProduct(2)">
-      <img src="../assets/images/sofa.png" alt="" />
+      <!-- <img src="../assets/images/sofa.png" alt="" /> -->
+      <span class="icon-armchair-with-wheels-of-studio-furniture"></span>
+
       <span class="icon_label">Sofa</span>
     </ion-col>
 
@@ -144,15 +147,17 @@
 
 <ion-col width-50 style="background-color: #f91623; !important;" (click)="pushProduct(3)">
   <span class="icon_label">Chairs</span>
-  <img src="../assets/images/chair.png" alt="" style="float: right; !important;"/>
+  <!-- <img src="../assets/images/chair.png" alt="" style="float: right; !important;"/> -->
+  <span class="icon-wardrobe"></span>
 
 
 
 </ion-col>
 
 
-<ion-col width-50 style="background-color: #b60412; !important;" (click)="pushProduct(4)">
-  <img src="../assets/images/cupboard.png" alt="" />
+<ion-col width-50 (click)="pushProduct(4)">
+  <!-- <img src="../assets/images/cupboard.png" alt="" /> -->
+  <span class="icon-icon"></span>
   <span class="icon_label" style="float: right;">Cupboard</span>
 
 </ion-col>
@@ -160,6 +165,7 @@
 </ion-row>
 
 </ion-grid>
+
 
 <!-- <div class="cards" *ngFor="let product of products" >
 <ion-card (click)='viewProduct(product.product_id)'>
@@ -183,5 +189,6 @@
       </ion-grid>
     </ion-card>
   </div> -->
+
 
 </ion-content>
