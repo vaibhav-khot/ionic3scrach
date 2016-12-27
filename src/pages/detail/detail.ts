@@ -64,12 +64,14 @@ current_image:string="";
   quantity(id){
     let prompt = this.alertCtrl.create({
       title: this.product.name,
-      message: "Enter Quntity",
+      message: `<div style='text-align : center;'>
+                <img src=`+this.product.product_images[0].image+`  height='142' width='142'>"
+                <div>Enter Quantity</div></div>`,
       inputs: [
         {
           name: 'Quantity',
-          placeholder: 'Quntity'
-        },
+          placeholder: 'Quantity'
+        }
       ],
       buttons: [
         {
@@ -104,7 +106,8 @@ current_image:string="";
 
           }
         }
-      ]
+      ],
+      cssClass:"imageclass"
     });
     prompt.present();
     console.log(id);
@@ -118,16 +121,7 @@ current_image:string="";
   openCart(){
     this.navCtrl.push(CartPage)
   }
-//   doRefresh(refresher) {
-//
-//     console.log('Begin async operation', refresher);
-//
-//     setTimeout(() => {
-//       console.log('Async operation has ended');
-//       refresher.complete();
-//     }, 2000);
-//
-// }
+
   ionViewDidLoad() {
     console.log('Hello DetailPage Page');
   }

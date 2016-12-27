@@ -108,7 +108,7 @@ viewProduct(product) {
      })
 
 }
-/* Toast method*/
+/* Toast method */
 showToast(count) {
   let toast = this.toastCtrl.create({
     message: count + ' out of ' + count,

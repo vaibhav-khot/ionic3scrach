@@ -89,7 +89,7 @@
   <ion-thumbnail style="margin-bottom:20px !important;">
     <img [src]='current_image' padding />
   </ion-thumbnail>
-  <ion-scroll scrollX="true"  class="item" style="height:100px !important;">
+  <ion-scroll scrollX="true" scrollY="true"    class="item" style="height:100px !important;">
       <ion-row padding>
           <ion-col width-33 *ngFor="let images of product.product_images"  (click)="viewImage(images.image)" style="border : 1px solid red;" margin-right>
             <img [src]='images.image' />
@@ -114,7 +114,7 @@
 <!-- Fixed at bottom while other scroll  -->
   <ion-footer scroll="false" padding>
 
-    <button ion-button color="primary" name="button" style="width:48%;border-radius:7px;"><span>Buy Now</span></button>
+    <button ion-button color="primary" name="button" style="width:48%;border-radius:7px;" (click)="quantity(product.id)"><span>Buy Now</span></button>
     <button ion-button color="light" name="button" style="width:48%;border-radius:7px;"><span style="color:gray">Rate</span></button>
 
 </ion-footer>
