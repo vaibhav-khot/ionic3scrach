@@ -34,9 +34,10 @@
 
 
 <ion-content style="background:#eee">
+
   <!-- <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content> -->
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -48,70 +49,72 @@
    </button>
   </ion-buttons>
   </ion-navbar>
-  <!-- </ion-refresher-content>
-    </ion-refresher>  -->
-<ion-card>
-      <ion-slides>
-        <ion-slide *ngFor="let image of product.product_images">
-          <ion-thumbnail>
-        <img [src]='image.image' />
-      </ion-thumbnail>
-        </ion-slide>
-          <!-- <ion-slide>
-          <ion-thumbnail>
-        <img [src]='product.product_images[1].image' />
-      </ion-thumbnail>
-        </ion-slide> -->
-        <!-- <ion-slide>
-          <ion-thumbnail>
-        <img [src]='product.product_images[2].image' />
-      </ion-thumbnail>
-    </ion-slide>  -->
-      </ion-slides>
-
-      <ion-grid padding>
-
- <ion-row>
-          <ion-col >
-            <!-- <ion-icon color='danger' name="md-star" large></ion-icon>
-            <ion-icon color='danger' name="md-star" large></ion-icon>
-            <ion-icon color='danger' name="md-star" large></ion-icon>
-            <ion-icon color='danger' name="md-star-half"></ion-icon>
-            <ion-icon color='danger' name="md-star-outline"></ion-icon> -->
-
-  <ion-icon *ngIf="product.rating>=1" color='danger' name="md-star"></ion-icon>
-  <ion-icon *ngIf="product.rating>=2" color='danger' name="md-star"></ion-icon>
-  <ion-icon *ngIf="product.rating>=3" color='danger' name="md-star"></ion-icon>
-  <ion-icon *ngIf="product.rating>=4" color='danger' name="md-star"></ion-icon>
-  <ion-icon *ngIf="product.rating>=5" color='danger' name="md-star"></ion-icon>
-  <ion-icon *ngIf="product.rating%1!=0" color='danger' name="md-star-half"></ion-icon>
-  <ion-icon *ngIf="product.rating==0" color='danger' name="md-star-outline"></ion-icon>
-  <ion-icon *ngIf="product.rating<=1" color='danger' name="md-star-outline"></ion-icon>
-  <ion-icon *ngIf="product.rating<=2" color='danger' name="md-star-outline"></ion-icon>
-  <ion-icon *ngIf="product.rating<=3" color='danger' name="md-star-outline"></ion-icon>
-  <ion-icon *ngIf="product.rating<=4" color='danger' name="md-star-outline"></ion-icon>
-          </ion-col>
- </ion-row>
-
-        <ion-row (click)="quantity(product.id)">
-          <ion-col width-50 padding-top>
-            <h2><span color='danger'>Rs.{{product.cost}}</span><span color='dark'> <del>Rs.{{product.cost}}</del></span></h2>
-
-             </ion-col>
-
-          <ion-col width-50>
-            <button ion-button primary round small><ion-icon name="md-cart" ></ion-icon> ADD TO CART</button>
-            </ion-col>
-
-        </ion-row>
 
 
-      </ion-grid>
+    <ion-card>
+      <ion-card-content>
+      <p>
+        {{product.name}} For Family
 
+      </p>
+      <p>
+        Producer - {{product.producer}}
+      </p>
+      <p>
+        Ratings - {{product.producer}}
+        <span *ngFor="let i of [1,2,3,4,5]" >
+            <ion-icon *ngIf="i<=product.rating" color='danger' name="md-star"></ion-icon>
+              <ion-icon *ngIf="i>product.rating" color='danger' name="md-star-outline"></ion-icon>
+        </span >
 
+      </p>
+      </ion-card-content>
     </ion-card>
-    <ion-card padding>
-     <ion-card-header color='primary' padding-top> <h2 no-padding>PRODUCT DESCRIPTION </h2></ion-card-header>
-<p padding-top>{{product.description}}</p>
-      </ion-card>
+<ion-card>
+  <ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col width-50>
+          {{product.cost | currency}}
+        </ion-col>
+        <ion-col width-40 text-right>
+          <ion-icon name="share" style="background-color: transparent !important;"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-card-header>
+
+
+<ion-card-content>
+  <ion-thumbnail style="margin-bottom:20px !important;">
+    <img [src]='current_image' padding />
+  </ion-thumbnail>
+  <ion-scroll scrollX="true"  class="item" style="height:100px !important;">
+      <ion-row padding>
+          <ion-col width-33 *ngFor="let images of product.product_images"  (click)="viewImage(images.image)" style="border : 1px solid red;" margin-right>
+            <img [src]='images.image' />
+          </ion-col>
+      </ion-row>
+    </ion-scroll>
+  </ion-card-content>
+</ion-card>
+
+    <ion-card no-padding>
+      <ion-card-header color='primary' style="padding-bottom:0 !important">
+        <h2 text-uppercase>product description</h2>
+      </ion-card-header>
+      <p padding style="padding-top:0 !important;">{{product.description}}</p>
+    </ion-card>
+
+
+
+
+
 </ion-content>
+<!-- Fixed at bottom while other scroll  -->
+  <ion-footer scroll="false" padding>
+
+    <button ion-button color="primary" name="button" style="width:48%;border-radius:7px;"><span>Buy Now</span></button>
+    <button ion-button color="light" name="button" style="width:48%;border-radius:7px;"><span style="color:gray">Rate</span></button>
+
+</ion-footer>

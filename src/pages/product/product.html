@@ -22,7 +22,7 @@
    </ion-navbar>
  </ion-header> -->
  <style>
- .card-background-page {
+ /*.card-background-page {
 
    ion-card {
      position: relative;
@@ -47,7 +47,7 @@
      color: #fff;
    }
 
- }
+ }*/
 
  </style>
 <ion-content>
@@ -123,10 +123,10 @@
     </div>
   </ion-card>
   </div> -->
-  <ion-grid >
-    <ion-row>
+  <ion-grid class="ion-grid" >
+    <ion-row class="ion-row">
 
-    <ion-col width-50 style="background-color: #d60919 !important;" (click)="pushProduct(1)">
+    <ion-col class="ion-col" width-50 style="background-color: #d60919 !important;" (click)="pushProduct(1)">
       <span class="icon_label" style="float: right;">Table</span>
       <!-- <img src="../assets/images/table.png" alt="" /> -->
       <span class="icon-dining-room"></span>
@@ -135,7 +135,7 @@
 </ion-col>
 
 
-    <ion-col width-50 style="background-color: #ca0007; !important;" (click)="pushProduct(2)">
+    <ion-col class="ion-col" width-50 style="background-color: #ca0007; !important;" (click)="pushProduct(2)">
       <!-- <img src="../assets/images/sofa.png" alt="" /> -->
       <span class="icon-armchair-with-wheels-of-studio-furniture"></span>
 
@@ -143,9 +143,9 @@
     </ion-col>
 
 </ion-row>
-<ion-row>
+<ion-row class="ion-row">
 
-<ion-col width-50 style="background-color: #f91623; !important;" (click)="pushProduct(3)">
+<ion-col class="ion-col" width-50 style="background-color: #f91623; !important;" (click)="pushProduct(3)">
   <span class="icon_label">Chairs</span>
   <!-- <img src="../assets/images/chair.png" alt="" style="float: right; !important;"/> -->
   <span class="icon-wardrobe"></span>
@@ -155,7 +155,7 @@
 </ion-col>
 
 
-<ion-col width-50 (click)="pushProduct(4)">
+<ion-col class="ion-col" width-50 (click)="pushProduct(4)">
   <!-- <img src="../assets/images/cupboard.png" alt="" /> -->
   <span class="icon-icon"></span>
   <span class="icon_label" style="float: right;">Cupboard</span>
@@ -175,13 +175,13 @@
       <ion-thumbnail>
         <img [src]='product.imgURI' />
       </ion-thumbnail>
-      <ion-grid>
-        <ion-row>
-          <ion-col width-50>
+      <ion-grid class="ion-grid">
+        <ion-row class="ion-row">
+          <ion-col class="ion-col" width-50>
             <ion-chip color='danger'><ion-label>Rs.{{product.current_price}}</ion-label></ion-chip>
              </ion-col>
 
-          <ion-col width-50>
+          <ion-col class="ion-col" width-50>
             <ion-chip><ion-label>+ ADD</ion-label></ion-chip>
             </ion-col>
 

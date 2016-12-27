@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController,NavParams, Events } from 'ionic-angular';
+import { NavController,NavParams, Events ,ToastController } from 'ionic-angular';
 import { Api } from '../../providers/api';
 import { DetailPage } from '../detail/detail';
 
@@ -21,10 +21,16 @@ export class ListPage {
   title:any;
   id:number;
 
+
+
+
+
+
   constructor(public navCtrl: NavController,
               public navParams : NavParams,
               public api :Api,
-              public events : Events )
+              public events : Events,
+              public toastCtrl: ToastController)
 
   {
     let e = navParams.get("e");
@@ -40,6 +46,7 @@ export class ListPage {
       this.api.loadProduct(this.id).then(res=>{
       console.log(res);
       this.products = res.data;
+      this.showToast(res.data.length);
     })
   // }
   this.events.subscribe('Cart', (item) => {
@@ -57,6 +64,8 @@ export class ListPage {
 
 
 }
+
+/* Lazy Loading */
 doInfinite(infiniteScroll){
   console.log("Sscroll");
   console.log(event);
@@ -77,23 +86,13 @@ doInfinite(infiniteScroll){
 
   this.api.loadProduct1(this.id,url2).then(res=>{
   console.log(res);
-
     for (let item of res.data) {
       this.products.push(item);
-
-
+      }
+      this.showToast(res.data.length+10)
+      infiniteScroll.enable(false);
+    })
   }
-infiniteScroll.enable(false);
-
-
-
-
-
-
-
-
-})
-}
 
 viewProduct(product) {
 
@@ -109,7 +108,16 @@ viewProduct(product) {
      })
 
 }
+/* Toast method*/
+showToast(count) {
+  let toast = this.toastCtrl.create({
+    message: count + ' out of ' + count,
+    duration: 3000,
+    position: "bottom"
+  });
 
+  toast.present(toast);
+}
   ionViewDidLoad() {
     console.log('Hello ListPage Page');
   }

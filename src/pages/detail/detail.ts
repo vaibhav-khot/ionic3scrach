@@ -18,6 +18,7 @@ export class DetailPage {
 product:any;
 productSlide:any;
 cartitem:any;
+current_image:string="";
 // myRating:number;
 
   constructor(
@@ -32,6 +33,7 @@ cartitem:any;
     {
     console.log("details page constructor");
     var product=this.navParams.get('product');
+    this.current_image=product.product_images[0].image;
     var item=this.navParams.get('item');
     console.log(product);
     this.product=product;
@@ -96,7 +98,7 @@ cartitem:any;
               // this.events.publish(res.total_carts);
               this.api.addCartEvent(res.total_carts);
 
-              
+
             })
           }
 
@@ -106,6 +108,12 @@ cartitem:any;
     });
     prompt.present();
     console.log(id);
+  }
+
+  viewImage(image){
+    this.current_image=image;
+
+
   }
   openCart(){
     this.navCtrl.push(CartPage)
