@@ -7,32 +7,86 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>cart</ion-title>
+    <ion-title text-center>My Cart</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding >
-  <ion-list>
+<ion-content style="background: #eee">
+
+
+<ion-card *ngFor="let item of cartData.data">
+  <ion-card-content no-padding>
+    <ion-list> 
   <ion-item-sliding #item>
-    <ion-item color="light">
-      <ion-row>
-        <ion-col width-25>
-          <ion-thumbnail >
-            <ion-img width="80" height="80" src="../../assets/categories/category1.jpg"></ion-img>
-            </ion-thumbnail>
-        </ion-col>
-        <ion-col width-75>
-          <ion-row>1st</ion-row><ion-row>2nd</ion-row><ion-row>3rd</ion-row>
-        </ion-col>
+      <ion-item no-padding >
+        <ion-thumbnail item-left class="no-margin">
+          <img src="../../assets/categories/category1.jpg" alt="" />
+        </ion-thumbnail>
+
+   
+     <ion-item no-padding>
+       <h2>{{item.product}}</h2>
+      
+       
+       <h2>name
+       </h2>
+     
+</ion-item>
+<ion-item no-padding>
+  
         
-      </ion-row>
+       
+    <ion-select item-left>
+      <ion-option value="1">1</ion-option>
+      <ion-option value="2">2</ion-option>
+      <ion-option value="3">3</ion-option>
+      <ion-option value="4">4</ion-option>
+      <ion-option value="5">5</ion-option>
+      <ion-option value="6">6</ion-option>
+    </ion-select>
+    <span item-right> Rs </span>
+      </ion-item>
+  
+
+</ion-item>
+  <ion-item-options side="right">
+    <button ion-button color="danger" (click)="delete(item)">Delete</button>
+    </ion-item-options>
+    </ion-item-sliding>
+    </ion-list> 
+
+
+     
+    
+
+
+
+
+   
+  
+
+  </ion-card-content>
+</ion-card>
+
+
+<ion-list>
+  <ion-item-sliding #item>
+    <ion-item>
+      Item
     </ion-item>
+    <ion-item-options side="left">
+      <button ion-button (click)="favorite(item)">Favorite</button>
+      <button ion-button color="danger" (click)="share(item)">Share</button>
+    </ion-item-options>
 
     <ion-item-options side="right">
-      <button ion-button (click)="Delete(item)" ><ion-icon ios="ios-trash" md="md-trash" style="border-radius: 50%"></ion-icon></button>
+      <button ion-button (click)="unread(item)">Unread</button>
     </ion-item-options>
   </ion-item-sliding>
 </ion-list>
+
+
+
 </ion-content>

@@ -134,6 +134,7 @@ return new Promise(resolve=>{
          })
 
   }
+ 
 
   // first page (publish an event when a user is created)
    createCartEvent(items) {

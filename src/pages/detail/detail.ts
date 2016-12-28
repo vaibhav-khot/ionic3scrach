@@ -119,7 +119,12 @@ current_image:string="";
 
   }
   openCart(){
-    this.navCtrl.push(CartPage)
+    this.api.loadCart().then(res=>{
+       this.navCtrl.push(CartPage,{
+         cart : res
+       })
+    })
+   
   }
 
   ionViewDidLoad() {
