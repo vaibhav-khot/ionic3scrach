@@ -28,7 +28,9 @@ export class BasePage {
 
     } else
     {
-      this.navCtrl.push(LoginPage);}
+      this.navCtrl.push(LoginPage);
+      
+      }
   }
 
 }
