@@ -6,27 +6,33 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>cart</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding >
   <ion-list>
-    <ion-item-sliding #item>
-      <ion-item>
-        Item
-      </ion-item>
-      <ion-item-options side="left">
-        <button ion-button (click)="favorite(item)">Favorite</button>
-        <button ion-button color="danger" (click)="share(item)">Share</button>
-      </ion-item-options>
+  <ion-item-sliding #item>
+    <ion-item color="light">
+      <ion-row>
+        <ion-col width-25>
+          <ion-thumbnail >
+            <ion-img width="80" height="80" src="../../assets/categories/category1.jpg"></ion-img>
+            </ion-thumbnail>
+        </ion-col>
+        <ion-col width-75>
+          <ion-row>1st</ion-row><ion-row>2nd</ion-row><ion-row>3rd</ion-row>
+        </ion-col>
+        
+      </ion-row>
+    </ion-item>
 
-      <ion-item-options side="right">
-        <button ion-button (click)="unread(item)">Unread</button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
+    <ion-item-options side="right">
+      <button ion-button (click)="Delete(item)" ><ion-icon ios="ios-trash" md="md-trash" style="border-radius: 50%"></ion-icon></button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
 </ion-content>
